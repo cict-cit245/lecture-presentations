@@ -1,0 +1,253 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Python for Cyberforensics</title>
+
+	<meta name="description" content="Presentation made with reveal.js">
+	<meta name="author" content="Mark Joseph J. Solidarios">
+
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/monokai.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section data-background="assets/bg0.jpg">
+				<h1>Python Challenges</h1>
+				<p>for Cyberforensics</p>
+				<div class="social-container">
+					<small>
+						Mark Joseph J. Solidarios
+						<a href="mailto: mjsolidarios@wvsu.edu.ph" target="_blank">
+							<img class="social" src="assets/mail.svg">
+						</a>
+						<a href="https://github.com/mjsolidarios" target="_blank">
+							<img class="social" src="assets/github.svg">
+						</a>
+						<a href="https://www.facebook.com/sexynojutsuuser" target="_blank">
+							<img class="social" src="assets/facebook.svg">
+						</a>
+						<a href="https://www.twitter.com/mjsolidarios" target="_blank">
+							<img class="social" src="assets/twitter.svg">
+						</a>
+					</small>
+				</div>
+			</section>
+			<section data-background="assets/bg0.jpg" class="left">
+				<img src="assets/nav.svg" alt="" class="icon-md" />
+				<p><small>
+						<i class="glyphicon glyphicon-info-sign"></i> Use the navigation buttons or the arrow keys to
+						proceed to the remaining slides.
+					</small></p>
+				<h2>F</h2>
+				<p>
+					<small>
+						<i class="glyphicon glyphicon-info-sign"></i> You can also press
+						<span class="highlight">&gt;</span>
+						<span class="highlight">&gt;</span>F
+						<span class="highlight">&lt;</span>
+						<span class="highlight">&lt;</span> on your keyboard to show your presentation in fullscreen
+						mode.
+					</small>
+				</p>
+				<img src="assets/explore.svg" class="icon-md" alt="" />
+				<p>
+					<small>
+						<i class="glyphicon glyphicon-info-sign"></i> This presentation is best explored with up-to-date
+						web browsers.
+					</small>
+				</p>
+			</section>
+
+			<section data-background="assets/bg0.jpg">
+				<h2>Task Automation</h2>
+				<p>Using Python, file analysis, comparison, creation and other tasks related to Cyber forensics can be automated.</p>
+			</section>
+
+			<section data-background="assets/pexels-myburgh-1102797.png">
+				<h2>Script Files</h2>
+				<p>Cyberforensic personnel can write scripts which can accept arguments and execute tasks.</p>
+			</section>
+			
+			<section data-background="assets/bg0.jpg">
+				<h2>Argument Parsing</h2>
+				<p>Task automation starts with user-friendly command-line interfaces. This can be done using the <strong><code>argparse</code></strong> module in Python</p>
+			</section>
+
+			<section data-background="assets/bg0.jpg">
+				<p>The argparse module</p>
+			<pre>
+				<code>
+parser = argparse.ArgumentParser(
+	prog='ProgramName',
+	description='What the program does',
+	epilog='Text at the bottom of help')
+				</code>
+			</pre>
+			</section>
+
+			<section data-background="assets/bg0.jpg">
+				<p>The <strong>argparse</strong> arguments</p>
+				<p><small>The ArgumentParser.add_argument() method attaches individual argument specifications to the parser. It supports positional arguments, options that accept values, and on/off flags:</small></p>
+				<pre>
+					<code>
+parser.add_argument('filename')           # positional argument
+parser.add_argument('-c', '--count')      # option that takes a value
+parser.add_argument('-v', '--verbose',
+					action='store_true')  # on/off flag
+					</code>
+				</pre>
+			</section>
+			<section data-background="assets/bg0.jpg">
+			<p>Reading the Arguments</p>
+			<pre>
+				<code>
+args = parser.parse_args()
+print(args.filename, args.count, args.verbose)
+				</code>
+			</pre>
+			</section>
+			<section data-background="assets/bg0.jpg">
+			<p>Example</p>
+			<p><small>Reading the file metadata.</small></p>
+			<pre><code>
+from __future__ import print_function
+import argparse
+from datetime import datetime as dt
+import os
+import sys
+			</code></pre>
+			</section>
+			<section data-background="assets/bg0.jpg">
+			<p>Tell them about your script.</p>
+			<pre><code>
+__author__ = ["Your Name"]
+__date__ = 20240923
+__description__ = "Gather filesystem metadata of provided file"
+			</code></pre>
+			</section>
+			<section data-background="assets/bg0.jpg">
+				<p>Add Arguments</p>
+			<pre><code>
+parser.add_argument("FILE_PATH",
+help="Path to file to gather metadata for")
+args = parser.parse_args()
+file_path = args.FILE_PATH
+			</code></pre>
+			</section>
+			<section data-background="assets/bg0.jpg">
+				<p>Check what OS</p>
+			<pre><code>
+stat_info = os.stat(file_path)
+if "linux" in sys.platform or "darwin" in sys.platform:
+	print("Change time: ", dt.fromtimestamp(stat_info.st_ctime))
+elif "win" in sys.platform:
+	print("Creation time: ", dt.fromtimestamp(stat_info.st_ctime))
+else:
+	print("[-] Unsupported platform {} detected. Cannot interpret "
+			"creation/change timestamp.".format(sys.platform)
+			)
+			</code></pre>
+			</section>
+			<section data-background="assets/bg0.jpg">
+				<p>Display the Result</p>
+			<pre><code>
+print("Modification time: ", dt.fromtimestamp(stat_info.st_mtime))
+print("Access time: ", dt.fromtimestamp(stat_info.st_atime))
+
+print("File mode: ", stat_info.st_mode)
+print("File inode: ", stat_info.st_ino)
+major = os.major(stat_info.st_dev)
+minor = os.minor(stat_info.st_dev)
+print("Device ID: ", stat_info.st_dev)
+print("\tMajor: ", major)
+print("\tMinor: ", minor)
+			</code></pre>
+			</section>
+			<section data-background="assets/bg0.jpg">
+				<p>Display the Result</p>
+<pre><code>
+print("Number of hard links: ", stat_info.st_nlink)
+print("Owner User ID: ", stat_info.st_uid)
+print("Group ID: ", stat_info.st_gid)
+print("File Size: ", stat_info.st_size)
+</code></pre>
+			</section>
+			<section data-background="assets/bg0.jpg">
+				<p>Display the Result</p>
+	<pre>
+<code>
+print("Is a symlink: ", os.path.islink(file_path))
+print("Absolute Path: ", os.path.abspath(file_path))
+print("File exists: ", os.path.exists(file_path))
+print("Parent directory: ", os.path.dirname(file_path))
+print("Parent directory: {} | File name: {}".format(
+	*os.path.split(file_path)))
+</code>
+	</pre>
+
+			</section>
+			<section data-background="assets/bg0.jpg" class="left">
+				<h2>Challenge #1</h2>
+				<p class="fragment">Update the code and enable the script to write all the file metadata in a text file. You can use online resources or collab with your classmate to help you with your code.</p>
+				<p class="fragment">It is up to you on how will you format your output. You can also use AI to speed up your workflow.</p>
+				<p class="fragment">Submit your output via <a href="https://github.com/cict-cit245/act3-challenges">GitHub</a>.</p>
+			</section>
+			
+			
+			<section>
+				<h2>Thank You!</h2>
+				<p>
+					<small>This presentation is made of <i class="fa glyphicon glyphicon-heart"></i> and <strong>HTML
+							5</strong></small>
+				</p>
+			</section>
+		</div>
+	</div>
+
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [{
+					src: 'plugin/markdown/marked.js'
+				},
+				{
+					src: 'plugin/markdown/markdown.js'
+				},
+				{
+					src: 'plugin/notes/notes.js',
+					async: true
+				},
+				{
+					src: 'plugin/highlight/highlight.js',
+					async: true
+				}
+			]
+		});
+	</script>
+</body>
+
+</html>
