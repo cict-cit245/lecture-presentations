@@ -1,11 +1,351 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>Intro Cyberforensics</title>
+
+    <meta name="description" content="Presentation made with reveal.js" />
+    <meta name="author" content="Mark Joseph J. Solidarios" />
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/reveal.css" />
+    <link rel="stylesheet" href="css/theme/black.css" />
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/monokai.css" />
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? "css/print/pdf.css"
+        : "css/print/paper.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-background="assets/bg0.jpg">
+          <h1>Cyberforensics</h1>
+          <p>An Introduction</p>
+          <div class="social-container">
+            <small>
+              Mark Joseph J. Solidarios
+              <a href="mailto: mjsolidarios@wvsu.edu.ph" target="_blank">
+                <img class="social" src="assets/mail.svg" />
+              </a>
+              <a href="https://github.com/mjsolidarios" target="_blank">
+                <img class="social" src="assets/github.svg" />
+              </a>
+              <a
+                href="https://www.facebook.com/sexynojutsuuser"
+                target="_blank"
+              >
+                <img class="social" src="assets/facebook.svg" />
+              </a>
+              <a href="https://www.twitter.com/mjsolidarios" target="_blank">
+                <img class="social" src="assets/twitter.svg" />
+              </a>
+            </small>
+          </div>
+        </section>
+        <section data-background="assets/bg0.jpg" class="left">
+          <img src="assets/nav.svg" alt="" class="icon-md" />
+          <p>
+            <small>
+              <i class="glyphicon glyphicon-info-sign"></i> Use the navigation
+              buttons or the arrow keys to proceed to the remaining slides.
+            </small>
+          </p>
+          <h2>F</h2>
+          <p>
+            <small>
+              <i class="glyphicon glyphicon-info-sign"></i> You can also press
+              <span class="highlight">&gt;</span>
+              <span class="highlight">&gt;</span>F
+              <span class="highlight">&lt;</span>
+              <span class="highlight">&lt;</span> on your keyboard to show your
+              presentation in fullscreen mode.
+            </small>
+          </p>
+          <img src="assets/explore.svg" class="icon-md" alt="" />
+          <p>
+            <small>
+              <i class="glyphicon glyphicon-info-sign"></i> This presentation is
+              best explored with up-to-date web browsers.
+            </small>
+          </p>
+        </section>
+
+        <section data-background="assets/bg0.jpg">
+          <h2>Digital Forensics</h2>
+          <p class="fragment">
+            The art of recovering and analyzing contents found on digital
+            devices such as desktops, notebooks, tablets, smartphones...etc
+          </p>
+        </section>
+
+        <section data-background="assets/bg0.jpg">
+          <h2>Cyber Forensics</h2>
+          <p class="fragment">
+            Specializes in the detection of cyber crimes exclusively gathering
+            and solving clues and threats in the cyberspace.
+          </p>
+        </section>
+
+        <section data-background="assets/bg0.jpg">
+          <h2>Cyber Crime</h2>
+          <p class="fragment">Detection and Prevention</p>
+        </section>
+        <section data-background="assets/bg0.jpg">
+          <h2>Two Forms</h2>
+        </section>
+        <section data-background="assets/bg0.jpg">
+          <h2>Computer Based Crime</h2>
+          <p class="fragment">
+            This is criminal activity that is conducted purely on computers, for
+            example cyber-bullying or spam. As well as crimes newly defined by
+            the computing age it also includes traditional crime conducted
+            purely on computers (for example, child pornography).
+          </p>
+        </section>
+        <section data-background="assets/bg0.jpg">
+          <h2>Computer Facilitated Crime</h2>
+          <p class="fragment">
+            Crime conducted in the "real world" but facilitated by the use of
+            computers. A classic example of this sort of crime is fraud:
+            computers are commonly used to communicate with other fraudsters, to
+            record/plan activities or to create fraudulent documents.
+          </p>
+        </section>
+        <section data-background="assets/bg0.jpg">
+          <h2>Forensics Evolution</h2>
+        </section>
+        <section data-background="assets/bg0.jpg">
+          <table>
+            <tr>
+              <td>Year</td>
+              <td>Event</td>
+            </tr>
+            <tr>
+              <td>1835</td>
+              <td>
+                Scotland Yard's Henry Goddard became the first person to use
+                physical analysis to connect a bullet to the murder weapon.
+              </td>
+            </tr>
+          </table>
+        </section>
+        <section data-background="assets/bg0.jpg">
+            <table>
+                <tr>
+                  <td>Year</td>
+                  <td>Event</td>
+                </tr>
+                <tr>
+                  <td>1836</td>
+                  <td>
+                    Scottish chemist named James Marsh developed a chemical test to detect arsenic,
+                    which was used during a murder trial. Nearly a century later, in 1930, scientist Karl Landsteiner
+                    won the Nobel Prize for classifying human blood into its various groups.
+                  </td>
+                </tr>
+              </table>
+        </section>
+        <section data-background="assets/bg0.jpg">
+            <table>
+                <tr>
+                  <td>Year</td>
+                  <td>Event</td>
+                </tr>
+                <tr>
+                  <td>
+                    1984
+                  </td>
+                  <td>
+                    FBI Magnetic Media program, which was later renamed to Computer Analysis and
+                    Response Team (CART), was created and it is believed to be the beginning of computer
+                    forensic.
+                  </td>
+                </tr>
+              </table>
+        </section>
+        <section data-background="assets/bg0.jpg">
+<table>
+                <tr>
+                  <td>Year</td>
+                  <td>Event</td>
+                </tr>
+                <tr>
+                  <td>
+                    1988
+                  </td>
+                  <td>
+                    The International Association of Computer Investigative Specialists(IACIS), an
+                    international non-profit corporation composed of volunteer computer forensic professionals
+                    dedicated to training and certifying practitioners in the field of forensic computer science was
+                    formed.
+                  </td>
+                </tr>
+              </table>
+        </section>
+        <section data-background="assets/bg0.jpg">
+            <table>
+                <tr>
+                  <td>Year</td>
+                  <td>Event</td>
+                </tr>
+                <tr>
+                  <td>
+                    1995
+                  </td>
+                  <td>
+                    International Organization on Computer Evidence (IOCE) was formed.
+                  </td>
+                </tr>
+              </table>
+        </section>
+        <section data-background="assets/bg0.jpg">
+            <table>
+                <tr>
+                  <td>Year</td>
+                  <td>Event</td>
+                </tr>
+                <tr>
+                  <td>
+                    1997
+                  </td>
+                  <td>
+                    G8 nations declared that "Law enforcement personnel must be trained and equipped to address high-tech crimes".
+                  </td>
+                </tr>
+              </table>
+        </section>
+        <section data-background="assets/bg0.jpg">
+            <table>
+                <tr>
+                  <td>Year</td>
+                  <td>Event</td>
+                </tr>
+                <tr>
+                  <td>
+                    1998
+                  </td>
+                  <td>
+                   <ul>
+                    <li>G8 appointed IICE to create international principles, guidelines and procedures relating to
+                        digital evidence.</li>
+                    <li>First INTERPOL Forensic Science Symposium was held</li>
+                   </ul>
+                  </td>
+                </tr>
+              </table>
+        </section>
+        <section data-background="assets/bg0.jpg">
+            <table>
+                <tr>
+                  <td>Year</td>
+                  <td>Event</td>
+                </tr>
+                <tr>
+                  <td>
+                    2000
+                  </td>
+                  <td>
+                    First FBI Regional Computer Forensic Laboratory established.
+                  </td>
+                </tr>
+              </table>
+        </section>
+        <section data-background="assets/bg0.jpg">
+          <h2>Cyberforensics Stages</h2>
+          <p class="fragment">
+            <ul>
+                <li>Acquire: Identifying and Preserving</li>
+                <li>Analyze: Technical Analysis</li>
+                <li>Evaluate: What the Lawyers DoPresent: Present digital evidence in a manner that is legally acceptable in any legal proceedings.</li>
+                <li></li>
+            </ul>
+          </p>
+        </section>
+        <section data-background="assets/bg0.jpg" class="left">
+          <h2>OSSTMM</h2>
+          <p class="fragment">
+            The Open Source Security Testing Methodology Manual (OSSTMM) is peer-reviewed and maintained by the Institute for Security and Open Methodologies (ISECOM). It has been primarily developed as a security auditing methodology assessing against regulatory and industry requirements.
+          </p>
+        </section>
+        <section data-background="assets/bg0.jpg">
+          <h2>Cyberforensics Uses</h2>
+          <ul>
+            <li class="fragment">Intellectual Property theft</li>
+            <li class="fragment">Industrial espionage</li>
+            <li class="fragment">Employment disputes</li>
+            <li class="fragment">Fraud investigations</li>
+            <li class="fragment">Forgeries</li>
+            <li class="fragment">Bankruptcy investigations</li>
+            <li class="fragment">Inappropriate email and internet use in the work place</li>
+            <li class="fragment">Regulatory compliance</li>
+          </ul>
+        </section>
+        <section data-background="assets/bg0.jpg">
+          <h2>Autopsy</h2>
+          <iframe width="1134" height="500" src="https://www.youtube.com/embed/uRK7xWsZ2TU" title="Computer Forensics: Using Autopsy To Investigate a Local Hard Drive" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </section>
+        <section data-background="assets/bg0.jpg">
+          <h2>Testdisk</h2>
+          <iframe width="1134" height="500" src="https://www.youtube.com/embed/0hrnvhapQn8" title="How to Recover Files From a Corrupt Hard Drive using TestDisk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </section>
+        <section data-background="assets/bg0.jpg"></section>
+          <h2>Kali Linux</h2>
+          <iframe width="1134" height="500" src="https://www.youtube.com/embed/psyDZ9ytlwc" title="What Is Kali Linux? | What Is Kali Linux And How To Use It? | Kali Linux Tutorial | Simplilearn" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </section>
+        <section>
+          <h2>Thank You!</h2>
+          <p>
+            <small
+              >This presentation is made of
+              <i class="fa glyphicon glyphicon-heart"></i> and
+              <strong>HTML 5</strong></small
+            >
+          </p>
+        </section>
+      </div>
+    </div>
+
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        dependencies: [
+          {
+            src: "plugin/markdown/marked.js",
+          },
+          {
+            src: "plugin/markdown/markdown.js",
+          },
+          {
+            src: "plugin/notes/notes.js",
+            async: true,
+          },
+          {
+            src: "plugin/highlight/highlight.js",
+            async: true,
+          },
+        ],
+      });
+    </script>
+  </body>
 </html>
