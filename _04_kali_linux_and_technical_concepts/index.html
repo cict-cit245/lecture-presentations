@@ -1,11 +1,316 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>Python for Cyberforensics</title>
+
+    <meta name="description" content="Presentation made with reveal.js" />
+    <meta name="author" content="Mark Joseph J. Solidarios" />
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/reveal.css" />
+    <link rel="stylesheet" href="css/theme/black.css" />
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/monokai.css" />
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? "css/print/pdf.css"
+        : "css/print/paper.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-background="assets/bg0.jpg">
+          <h1>Kali Linux</h1>
+          <p>for Cyberforensics</p>
+          <div class="social-container">
+            <small>
+              Mark Joseph J. Solidarios
+              <a href="mailto: mjsolidarios@wvsu.edu.ph" target="_blank">
+                <img class="social" src="assets/mail.svg" />
+              </a>
+              <a href="https://github.com/mjsolidarios" target="_blank">
+                <img class="social" src="assets/github.svg" />
+              </a>
+              <a
+                href="https://www.facebook.com/sexynojutsuuser"
+                target="_blank"
+              >
+                <img class="social" src="assets/facebook.svg" />
+              </a>
+              <a href="https://www.twitter.com/mjsolidarios" target="_blank">
+                <img class="social" src="assets/twitter.svg" />
+              </a>
+            </small>
+          </div>
+        </section>
+        <section data-background="assets/bg0.jpg" class="left">
+          <img src="assets/nav.svg" alt="" class="icon-md" />
+          <p>
+            <small>
+              <i class="glyphicon glyphicon-info-sign"></i> Use the navigation
+              buttons or the arrow keys to proceed to the remaining slides.
+            </small>
+          </p>
+          <h2>F</h2>
+          <p>
+            <small>
+              <i class="glyphicon glyphicon-info-sign"></i> You can also press
+              <span class="highlight">&gt;</span>
+              <span class="highlight">&gt;</span>F
+              <span class="highlight">&lt;</span>
+              <span class="highlight">&lt;</span> on your keyboard to show your
+              presentation in fullscreen mode.
+            </small>
+          </p>
+          <img src="assets/explore.svg" class="icon-md" alt="" />
+          <p>
+            <small>
+              <i class="glyphicon glyphicon-info-sign"></i> This presentation is
+              best explored with up-to-date web browsers.
+            </small>
+          </p>
+        </section>
+
+        <section data-background="assets/bg0.jpg">
+          <h2>Forensic Carving</h2>
+          <p class="fragment">
+            File carving is like piecing together a puzzle by recognizing and
+            collecting specific patterns in a vast sea of data. It's a valuable
+            technique for situations where traditional recovery methods fall
+            short.
+          </p>
+        </section>
+        <section data-background="assets/bg0.jpg">
+          <img src="assets/magicrescue-logo.svg" alt="" srcset="" />
+          <h2>magicrescue</h2>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+          <p><small> Forensic Carving </small></p>
+          <hr />
+          <h2>magicrescue</h2>
+          <p class="fragment">
+            Magic Rescue scans a block device for file types it knows how to
+            recover and calls an external program to extract them. It looks at
+            “magic bytes” (file patterns) in file contents, so it can be used
+            both as an undelete utility and for recovering a corrupted drive or
+            partition. As long as the file data is there, it will find it.
+          </p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+          <p><small> Forensic Carving &gt; magicrescue </small></p>
+          <hr />
+          <p class="fragment">
+            Magic Rescue uses files called ‘recipes’. These files have strings
+            and commands to identify and extract data from devices or forensics
+            images. So, you can write your own recipes. Currently, there are the
+            following recipes: avi, canon-cr2, elf, flac, gpl, gzip, jpeg-exif,
+            jpeg-jfif, mbox, mbox-mozilla-inbox, mbox-mozilla-sent, mp3-id3v1,
+            mp3-id3v2, msoffice, nikon-raw, perl, png, ppm, sqlite and zip.
+          </p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+          <p><small> Forensic Carving &gt; magicrescue </small></p>
+          <hr />
+          <img src="assets/kali-2.png" alt="" srcset="" />
+        </section>
+        <section data-background="assets/bg0.jpg">
+          <img src="assets/scalpel-logo.svg" alt="" srcset="" />
+          <h2>scalpel</h2>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+          <p><small> Forensic Carving </small></p>
+          <hr />
+          <h2>scalpel</h2>
+          <p class="fragment">
+            scalpel is a fast file carver that reads a database of header and
+            footer definitions and extracts matching files from a set of image
+            files or raw device files.
+          </p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+          <p><small>Forensic Carving &gt; scalpel</small></p>
+          <hr />
+          <p class="fragment">
+            scalpel is filesystem-independent and will carve files from FAT16,
+            FAT32, exFAT, NTFS, Ext2, Ext3, Ext4, JFS, XFS, ReiserFS, raw
+            partitions, etc.
+          </p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+          <p><small>Forensic Carving &gt; scalpel</small></p>
+          <hr />
+          <p class="fragment">
+            scalpel is a complete rewrite of the Foremost 0.69 file carver and
+            is useful for both digital forensics investigations and file
+            recovery.
+          </p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+          <p><small>Forensic Carving &gt; scalpel</small></p>
+          <hr />
+          <img src="assets/kali-3.png" alt="" srcset="" />
+        </section>
+        <section data-background="assets/bg0.jpg">
+          <img src="assets/scrounge-ntfs-logo.svg" alt="" srcset="" />
+          <h2>scrounge-ntfs</h2>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+          <p><small>Forensic Carving &gt; scrounge-ntfs</small></p>
+          <hr />
+          <h2>scrounge-ntfs</h2>
+          <p class="fragment">
+            Scrounge NTFS is a data recovery program for NTFS filesystems. It
+            reads each block of the hard disk and try to rebuild the original
+            filesystem tree into a directory.
+          </p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+          <p><small>Forensic Carving &gt; scrounge-ntfs</small></p>
+          <hr />
+          <img src="assets/kali-5.png" alt="" srcset="" />
+        </section>
+        <section data-background="assets/bg0.jpg">
+          <h2>Forensic Imaging</h2>
+          <p class="fragment">
+            Process of making an exact copy of digital storage media for the
+            purposes of preserving its contents and structure for later
+            analysis.
+          </p>
+        </section>
+        <section data-background="assets/bg0.jpg">
+          <img src="assets/guymager-logo.svg" alt="" srcset="" />
+          <h2>guymager</h2>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+          <p><small>Forensic Imaging &gt; guymager</small></p>
+          <hr />
+          <h2>guymager</h2>
+          <p class="fragment">
+            The forensic imager contained in this package, guymager, was
+            designed to support different image file formats, to be most
+            user-friendly and to run really fast. It has a high speed
+            multi-threaded engine using parallel compression for best
+            performance on multi-processor and hyper-threading machines.
+          </p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+          <p><small>Forensic Imaging &gt; guymager</small></p>
+          <hr />
+          <img src="assets/kali-6.png" alt="" srcset="" />
+        </section>
+
+        <section data-background="assets/bg0.jpg">
+          <h2>PDF Forensics</h2>
+          <p class="fragment">
+            Aimed at analyzing PDF documents and extract deep information which
+            is typically not visible to common users.
+          </p>
+        </section>
+        <section data-background="assets/bg0.jpg">
+          <img src="assets/pdfid-logo.svg" alt="" srcset="" />
+          <h2>pdfid</h2>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+          <p><small>PDF Forensics &gt; pdfid</small></p>
+          <hr />
+          <h2>pdfid</h2>
+          <p class="fragment">
+            This tool is not a PDF parser, but it will scan a file to look for
+            certain PDF keywords, allowing you to identify PDF documents that
+            contain (for example) JavaScript or execute an action when opened.
+            PDFiD will also handle name obfuscation.
+          </p>
+        </section>
+        <section data-background="assets/bg0.jpg">
+          <img src="assets/pdf-parser-logo.svg" alt="" srcset="" />
+          <h2>pdf-parser</h2>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+          <p><small>PDF Forensics &gt; pdf-parser</small></p>
+          <hr />
+          <h2>pdf-parser</h2>
+          <p class="fragment">
+            This tool will parse a PDF document to identify the fundamental
+            elements used in the analyzed file. It will not render a PDF
+            document.
+          </p>
+        </section>
+        <section data-background="assets/bg0.jpg">
+          <h2>Sleuth Kit</h2>
+          <p class="fragment">
+            The Sleuth Kit is a library and collection of Unix- and
+            Windows-based utilities for extracting data from disk drives and
+            other storage so as to facilitate the forensic analysis of computer
+            systems
+          </p>
+        </section>
+        <section data-background="assets/bg0.jpg">
+            <img src="assets/autopsy-logo.svg" alt="" srcset="">
+            <p>Autopsy</p>
+          </section>
+        <section data-background="assets/bg0.jpg" class="left">
+          <p><small>Sleuth Kit &gt;autopsy</small></p>
+          <p class="fragment">
+            The Autopsy Forensic Browser is a graphical interface to the command line digital forensic analysis tools in The Sleuth Kit. Together, The Sleuth Kit and Autopsy provide many of the same features as commercial digital forensics tools for the analysis of Windows and UNIX file systems (NTFS, FAT, FFS, EXT2FS, and EXT3FS).
+          </p>
+        </section>
+        <section data-background="assets/bg0.jpg">
+          <p><small>Sleuth Kit &gt;autopsy</small></p>
+          <img src="assets/kali-8.png" alt="" srcset="">
+        </section>
+        <section>
+          <h2>Thank You!</h2>
+          <p>
+            <small
+              >This presentation is made of
+              <i class="fa glyphicon glyphicon-heart"></i> and
+              <strong>HTML 5</strong>
+            </small>
+          </p>
+        </section>
+      </div>
+    </div>
+
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        dependencies: [
+          {
+            src: "plugin/markdown/marked.js",
+          },
+          {
+            src: "plugin/markdown/markdown.js",
+          },
+          {
+            src: "plugin/notes/notes.js",
+            async: true,
+          },
+          {
+            src: "plugin/highlight/highlight.js",
+            async: true,
+          },
+        ],
+      });
+    </script>
+  </body>
 </html>
