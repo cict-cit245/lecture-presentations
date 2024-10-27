@@ -7,7 +7,7 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
 
-    <title>Python for Cyberforensics</title>
+    <title>Kali For Linux</title>
 
     <meta name="description" content="Presentation made with reveal.js" />
     <meta name="author" content="Mark Joseph J. Solidarios" />
@@ -261,19 +261,359 @@
           </p>
         </section>
         <section data-background="assets/bg0.jpg">
-            <img src="assets/autopsy-logo.svg" alt="" srcset="">
-            <p>Autopsy</p>
-          </section>
+          <img src="assets/autopsy-logo.svg" alt="" srcset="" />
+          <p>Autopsy</p>
+        </section>
         <section data-background="assets/bg0.jpg" class="left">
           <p><small>Sleuth Kit &gt;autopsy</small></p>
           <p class="fragment">
-            The Autopsy Forensic Browser is a graphical interface to the command line digital forensic analysis tools in The Sleuth Kit. Together, The Sleuth Kit and Autopsy provide many of the same features as commercial digital forensics tools for the analysis of Windows and UNIX file systems (NTFS, FAT, FFS, EXT2FS, and EXT3FS).
+            The Autopsy Forensic Browser is a graphical interface to the command
+            line digital forensic analysis tools in The Sleuth Kit. Together,
+            The Sleuth Kit and Autopsy provide many of the same features as
+            commercial digital forensics tools for the analysis of Windows and
+            UNIX file systems (NTFS, FAT, FFS, EXT2FS, and EXT3FS).
           </p>
         </section>
         <section data-background="assets/bg0.jpg">
           <p><small>Sleuth Kit &gt;autopsy</small></p>
-          <img src="assets/kali-8.png" alt="" srcset="">
+          <img src="assets/kali-8.png" alt="" srcset="" />
         </section>
+        <section data-background="assets/bg0.jpg">
+          <h2>Essential Technical Concepts</h2>
+          <p>
+           <small> Conducting a digital forensics investigation requires a thorough
+            understanding of some of the main technical concepts of computing.</small>
+          </p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+          <h2>Computer Character Encoding Schema</h2>
+          <p class="fragment">
+            Computers use character encoding schema to convert binary numbers
+            into meaningful text that a human can read .
+          </p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <h2>ASCII</h2>
+            <p class="fragment">
+                Also known as American Standard Code for Information Interchange. <span class="fragment"> ASCII codes represent text in computers, telecommunications equipment, and other devices. </span><span class="fragment">ASCII has just 128 code points, of which only 95 are printable characters, which severely limit its scope.</span>
+            </p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <h2>Unicode</h2>
+            <p class="fragment">
+                Unicode encoding, created by The Unicode Consortium, is a widely used character-encoding schema that provides a unique number for every character from any international language.
+            </p>
+        </section>
+        <section data-background="assets/bg0.jpg">         
+            <p class="fragment">
+                Understanding how computers store and represent data is essential in digital forensics
+            </p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <h2>File Structure</h2>
+            <p class="fragment">
+                Digital files are composed of a sequence of bits: each file type has a particular encoding scheme (file format) that describes how information is stored within this file. 
+            </p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <h2>Revelation: Digital Concealment</h2>
+            <p class="fragment">
+              As forensic investigators, one cannot depend on file extension alone. Most digital files have a signature that is located in the first 20 bytes of the file <span class="fragment">- you can check this signature by opening the subject file using a text editor</span>.
+            </p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <p>A hex editor (https://hexed.it/)</p>
+            <img src="assets/hex.png" alt="">
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <h2>File Contents</h2>
+            <img src="assets/hex2.png" alt="">
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <h2>Investigation</h2>
+            <img src="assets/hex3.png" alt="">
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <h2>Digital File Metadata</h2>
+            <p class="fragment">
+                Metadata is data about data. Most digital file types have metadata associated with them.
+            </p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <h2>Metadata Investigation</h2>
+            <p class="fragment">
+                From a digital forensics perspective, metadata can be very useful in many cases.
+                <span class="fragment">Example: Tracking different authors of a file (e.g., an MS Office file) through the associated metadata. </span>
+            </p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <h2>Hash Analysis</h2>
+            <p class="fragment">
+                Hashing is an important concept in the digital forensic field; actually, you must calculate any digital evidence hash value (whether it is a hard disk image or a single file) you acquire during your investigation to prove that the acquired data (i.e., the digital evidence) has not been tampered with.
+            </p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <h2>Volatile &amp; Nonvolatile Memory</h2>
+            <ul>
+                <li class="fragment">Volatile memory keeps information for a short time; actually, it needs power to retain
+                    data, but when power is turned off, it loses its information quickly. </li>
+                <li class="fragment">Nonvolatile memory can retain data for long time, even after power is turned off. It is
+                    usually used for long-term persistent storage.</li>
+            </ul>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <h2>Types of Computer Storage</h2>
+            <p class="fragment">
+                Primary Storage
+            </p>
+            <p><small class="fragment">
+                Also known as main storage and system storage, this type has a volatile memory
+that loses stored data when power is turned off. 
+            </small></p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <p class="fragment">
+              Secondary Storage
+            </p>
+            <p><small class="fragment">
+                Secondary storage is also known as external memory or auxiliary memory. This is
+nonvolatile memory that retains its contents, whether there is power or not. It is used for
+long-term data retention. 
+            </small></p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <h2>Partition</h2>
+            <p class="fragment">
+                A partition is a section on the disk. There are two types on partition for a disk: Primary and Extended - A primary partition will hold operating system booting
+                files, while the extended partition, can be subdivided into 24 logical partitions; however, newer file systems can surpass the limit of 24 logical partitions.
+            </p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <p>File System Types</p>
+            <small class="fragment">
+                <table>
+                    <tr>
+                      <th>Feature</th>
+                      <th>NTFS</th>
+                      <th>FAT32</th>
+                      <th>exFAT</th>
+                      <th>EXT4</th>
+                      <th>APFS</th>
+                    </tr>
+                    <tr>
+                      <td>Journaling</td>
+                      <td>Yes</td>
+                      <td>No</td>
+                      <td>Yes</td>
+                      <td>Yes</td>
+                      <td>Yes</td>
+                    </tr>
+                    <tr>
+                      <td>Large File Support</td>
+                      <td>Yes</td>
+                      <td>Limited (4GB)</td>
+                      <td>Yes</td>
+                      <td>Yes</td>
+                      <td>Yes</td>
+                    </tr>
+                    <tr>
+                      <td>Large Partition Support</td>
+                      <td>Yes</td>
+                      <td>Limited (32GB)</td>
+                      <td>Yes</td>
+                      <td>Yes</td>
+                      <td>Yes</td>
+                    </tr>
+                    <tr>
+                      <td>Security Features</td>
+                      <td>Yes (ACLs)</td>
+                      <td>No</td>
+                      <td>Limited</td>
+                      <td>Yes (ACLs)</td>
+                      <td>Yes (ACLs)</td>
+                    </tr>
+                    <tr>
+                      <td>Compression</td>
+                      <td>Yes</td>
+                      <td>No</td>
+                      <td>No</td>
+                      <td>Yes</td>
+                      <td>Yes</td>
+                    </tr>
+                    <tr>
+                      <td>Encryption</td>
+                      <td>Yes</td>
+                      <td>No</td>
+                      <td>No</td>
+                      <td>Yes</td>
+                      <td>Yes</td>
+                    </tr>
+                    <tr>
+                      <td>Fragmentation Resistance</td>
+                      <td>Good</td>
+                      <td>Poor</td>
+                      <td>Good</td>
+                      <td>Good</td>
+                      <td>Good</td>
+                    </tr>
+                    <tr>
+                      <td>Performance</td>
+                      <td>Good</td>
+                      <td>Fair</td>
+                      <td>Good</td>
+                      <td>Good</td>
+                      <td>Excellent</td>
+                    </tr>
+                    <tr>
+                      <td>Compatibility</td>
+                      <td>Primarily Windows</td>
+                      <td>Windows, macOS, Linux</td>
+                      <td>Windows, macOS, Linux</td>
+                      <td>Primarily Linux</td>
+                      <td>Primarily macOS</td>
+                    </tr>
+                  </table>
+                </small>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <p>Common File Systems and Their Meanings</p>
+            <small class="fragment">
+                <table>
+                    <tr>
+                      <th>File System</th>
+                      <th>Platform</th>
+                      <th>Key Features</th>
+                    </tr>
+                    <tr>
+                      <td>NTFS (New Technology File System)</td>
+                      <td>Windows</td>
+                      <td>Robust, supports encryption, compression, and access control lists (ACLs)</td>
+                    </tr>
+                    <tr>
+                      <td>FAT32 (File Allocation Table 32)</td>
+                      <td>Windows, macOS, Linux</td>
+                      <td>Simple, compatible, but limited in file and partition size</td>
+                    </tr>
+                    <tr>
+                      <td>exFAT (Extended File Allocation Table)</td>
+                      <td>Windows, macOS, Linux</td>
+                      <td>Supports larger files and partitions, good for external storage</td>
+                    </tr>
+                    <tr>
+                      <td>APFS (Apple File System)</td>
+                      <td>macOS</td>
+                      <td>High performance, encryption, snapshots, and space sharing</td>
+                    </tr>
+                    <tr>
+                      <td>ext4 (Fourth Extended File System)</td>
+                      <td>Linux</td>
+                      <td>Supports large files, journaling, encryption, and compression</td>
+                    </tr>
+                    <tr>
+                      <td>XFS (X Filesystem)</td>
+                      <td>Linux</td>
+                      <td>High-performance file system for large file systems and heavy workloads</td>
+                    </tr>
+                  </table>
+            </small>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <p>Data Measurement Units</p>
+            <small class="fragment">
+                <table>
+                    <tr>
+                      <th>Unit</th>
+                      <th>Symbol</th>
+                      <th>Equivalent</th>
+                    </tr>
+                    <tr>
+                      <td>Bit</td>
+                      <td>b</td>
+                      <td>Binary digit (0 or 1)</td>
+                    </tr>
+                    <tr>
+                      <td>Byte</td>
+                      <td>B</td>
+                      <td>8 bits</td>
+                    </tr>
+                    <tr>
+                      <td>Kilobyte</td>
+                      <td>KB</td>
+                      <td>1024 bytes (approximately 1000 bytes)</td>
+                    </tr>
+                    <tr>
+                      <td>Megabyte</td>
+                      <td>MB</td>
+                      <td>1024 kilobytes (approximately 1 million bytes)</td>
+                    </tr>
+                    <tr>
+                      <td>Gigabyte</td>
+                      <td>GB</td>
+                      <td>1024 megabytes (approximately 1 billion bytes)</td>
+                    </tr>
+                    <tr>
+                      <td>Terabyte</td>
+                      <td>TB</td>
+                      <td>1024 gigabytes (approximately 1 trillion bytes)</td>
+                    </tr>
+                    <tr>
+                      <td>Petabyte</td>
+                      <td>PB</td>
+                      <td>1024 terabytes (approximately 1 quadrillion bytes)</td>
+                    </tr>
+                    <tr>
+                      <td>Exabyte</td>
+                      <td>EB</td>
+                      <td>1024 petabytes (approximately 1 quintillion bytes)</td>
+                    </tr>
+                    <tr>
+                      <td>Zettabyte</td>
+                      <td>ZB</td>
+                      <td>1024 exabytes (approximately 1 sextillion bytes)</td>
+                    </tr>
+                    <tr>
+                      <td>Yottabyte</td>
+                      <td>YB</td>
+                      <td>1024 zettabytes (approximately 1 septillion bytes)</td>
+                    </tr>
+                  </table>
+            </small>
+        </section>
+        <section>
+            <section class="left" data-background="assets/bg0.jpg">
+                <h2>Data Recovery Considerations</h2>
+            </section>
+            <section class="left" data-background="assets/bg0.jpg">
+                <p class="fragment">
+                    Recovering data from SSD is more difficult than it is from HDD, and sometimes it is not
+                    possible at all. For instance, when you delete a file on an HDD, the subject file data will
+                    not get deleted immediately; instead, the HDD will only delete the pointer to this file,
+                    marking its space on the disk as free. The subject file data will get deleted only when the
+                    operating system needs to write new data on its location.
+                </p>
+            </section>
+            <section class="left" data-background="assets/bg0.jpg">
+                <p class="fragment">
+                    The SSD uses a different mechanism to handle deleted files; for instance, when
+                    a user deletes a file, the SSD will utilize the TRIM command, which works to delete a
+                    subject file instantly, leaving its location free for another file to occupy. Each operating
+                    system type implements the TRIM command differently: some OS will execute it
+                    immediately after a user deletes a file, while others will execute it at regular intervals
+                </p>
+            </section>
+        </section>        
+        <section class="left" data-background="assets/bg0.jpg">
+            <h2></h2>
+            <p class="fragment">
+              
+            </p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <h2></h2>
+            <p class="fragment">
+              
+            </p>
+        </section>                                                                                                                                                                
         <section>
           <h2>Thank You!</h2>
           <p>
