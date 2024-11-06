@@ -1,11 +1,447 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>Crime Scene Investigation</title>
+
+    <meta name="description" content="Presentation made with reveal.js" />
+    <meta name="author" content="Mark Joseph J. Solidarios" />
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/reveal.css" />
+    <link rel="stylesheet" href="css/theme/black.css" />
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/monokai.css" />
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? "css/print/pdf.css"
+        : "css/print/paper.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-background="assets/bg0.jpg">
+          <h1>Crime Scene Investigation</h1>
+          <p>for Cyberforensics</p>
+          <div class="social-container">
+            <small>
+              Mark Joseph J. Solidarios
+              <a href="mailto: mjsolidarios@wvsu.edu.ph" target="_blank">
+                <img class="social" src="assets/mail.svg" />
+              </a>
+              <a href="https://github.com/mjsolidarios" target="_blank">
+                <img class="social" src="assets/github.svg" />
+              </a>
+              <a
+                href="https://www.facebook.com/sexynojutsuuser"
+                target="_blank"
+              >
+                <img class="social" src="assets/facebook.svg" />
+              </a>
+              <a href="https://www.twitter.com/mjsolidarios" target="_blank">
+                <img class="social" src="assets/twitter.svg" />
+              </a>
+            </small>
+          </div>
+        </section>
+        <section data-background="assets/bg0.jpg" class="left">
+          <img src="assets/nav.svg" alt="" class="icon-md" />
+          <p>
+            <small>
+              <i class="glyphicon glyphicon-info-sign"></i> Use the navigation
+              buttons or the arrow keys to proceed to the remaining slides.
+            </small>
+          </p>
+          <h2>F</h2>
+          <p>
+            <small>
+              <i class="glyphicon glyphicon-info-sign"></i> You can also press
+              <span class="highlight">&gt;</span>
+              <span class="highlight">&gt;</span>F
+              <span class="highlight">&lt;</span>
+              <span class="highlight">&lt;</span> on your keyboard to show your
+              presentation in fullscreen mode.
+            </small>
+          </p>
+          <img src="assets/explore.svg" class="icon-md" alt="" />
+          <p>
+            <small>
+              <i class="glyphicon glyphicon-info-sign"></i> This presentation is
+              best explored with up-to-date web browsers.
+            </small>
+          </p>
+        </section>
+
+        <section class="left">
+          <section data-background="assets/bg0.jpg">
+            <h2>Securing a Computer Incident or Crime Scene</h2>
+            <p class="fragment">
+              Investigators secure an incident or crime scene to preserve the
+              evidence and to keep information about the incident or crime
+              confidential.
+            </p>
+          </section>
+          <section data-background="assets/bg0.jpg">
+            <p>
+              Information made public could jeopardize the investigation.
+              <span class="fragment"
+                >If you&apos;re in charge of securing a computer incident or
+                crime scene, use yellow barrier tape to prevent bystanders from
+                accidentally entering the scene.</span
+              >
+            </p>
+          </section>
+          <section data-background="assets/bg0.jpg">
+            <p>
+              Use police officers or security guards to prevent others from
+              entering the scene
+            </p>
+          </section>
+          <section data-background="assets/bg0.jpg">
+            <p>
+              For major crime scenes, computer investigators aren&apos;t usually
+              responsible for defining a scene’s security perimeter.
+              <span class="fragment">
+                These cases involve other specialists and detectives who are
+                collecting physical evidence and recording the scene.
+              </span>
+            </p>
+          </section>
+          <section data-background="assets/bg0.jpg">
+            <p>
+              For incidents primarily involving computers, the computers can be
+              a crime scene within a crime scene, containing evidence to be
+              processed.
+            </p>
+          </section>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+          <h2>Cyber Crime Investigator</h2>
+          <p class="fragment">
+            - specialized professional who investigates and analyzes cyber crime
+            incidents, such as hacking, identity theft, fraud, and other types
+            of cyber-related crimes.
+          </p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <p>Investigators identify the culprits and gather digital evidence
+                that can be used to prosecute them in court.</p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+          <section>
+            <h2>Cyber Crime Investigation Process</h2>
+            <ol>
+              <li class="fragment">Initial Response and Assessment</li>
+              <li class="fragment">Evidence Collection and Preservation</li>
+              <li class="fragment">Evidence Analysis</li>
+              <li class="fragment">Reporting and Documentation</li>
+            </ol>
+          </section>
+          <section>
+            <h2>Initial Response and Assessment</h2>
+            <ul>
+              <li class="fragment">
+                Secure the scene to prevent data corruption or destruction.
+              </li>
+              <li class="fragment">
+                Identify potential sources of evidence (computers, mobile
+                devices, network devices, cloud storage).
+              </li>
+              <li class="fragment">
+                Document the initial state of the system, including screenshots
+                and system logs.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <h2>Evidence Collection and Preservation</h2>
+              <li class="fragment">
+                Use specialized forensic tools to acquire digital evidence
+                without altering the original data.
+              </li>
+              <li class="fragment">
+                Create forensic images of storage devices to preserve their
+                integrity.
+              </li>
+              <li class="fragment">
+                Collect volatile data (system memory, network traffic) using
+                memory acquisition techniques.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <h2>Evidence Analysis</h2>
+              <li class="fragment">
+                Analyze collected data to identify patterns, anomalies, and
+                potential leads.
+              </li>
+              <li class="fragment">
+                Use forensic software to extract and examine files, emails,
+                browsing history, and other digital artifacts.
+              </li>
+              <li class="fragment">
+                Correlate findings with other evidence to build a strong case.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h2>Reporting and Documentation</h2>
+            <ul>
+              <li class="fragment">
+                Prepare detailed reports documenting the entire investigation
+                process.
+              </li>
+              <li class="fragment">
+                Present findings in a clear and concise manner, suitable for
+                legal proceedings.
+              </li>
+              <li class="fragment">
+                Adhere to legal and ethical guidelines throughout the
+                investigation.
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <h2>Challenges in Cyber Crime Investigation</h2>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <p><small>Challenges</small></p>
+            <p>Data can be easily altered or destroyed.</p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <table>
+                <thead>
+                    <tr>
+                        <td>Type</td><td>Life Expectancy</td>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>Hard Disk Drives (HDDs)</td>
+                    <td>4-7 years</td>
+                </tr>
+                <tr>
+                    <td>Solid-State Drives (SSDs)</td>
+                    <td>5-10 years</td>
+                </tr>
+                <tr>
+                    <td>Flash</td>
+                    <td>10 years average use</td>
+                </tr>
+                <tr>
+                    <td>CD-R</td>
+                    <td>50-100+ years</td>
+                </tr>
+            </table>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <p><small>Challenges</small></p>
+            <p>Can be complex: Investigators must understand the intricate network configurations and software systems.</p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <p><small>Challenges</small></p>
+            <p>Technology is rapidly evolving.</p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <p><small>Challenges</small></p>
+            <p>Legal and Ethical Considerations: Adhering to legal frameworks and privacy regulations.</p>
+        </section>
+         <section class="left" data-background="assets/bg0.jpg">
+            <section>
+                <h2>Best Practices</h2>
+            </section>
+            <section>
+                <p>Follow Established Procedures: <span class="fragment">Adhere to standard operating procedures and forensic best practices.</span></p>
+            </section>
+            <section>
+                <p>
+                    Utilize Specialized Tools: <span class="fragment">Employ advanced forensic software to efficiently analyze digital evidence.</span>
+                </p>
+            </section>
+            <section>
+                <p>
+                    Stay Updated: <span class="fragment">Continuously learn about new technologies and emerging threats.</span>
+                </p>
+            </section>
+            <section>
+                <p>
+                    Collaborate with Experts: <span class="fragment">Work with other experts, such as network analysts and digital forensics specialists.</span>
+                </p>
+            </section>
+            <section>
+                <p>
+                    Document Everything: <span class="fragment">Maintain detailed records of all actions taken during the investigation.</span>
+                </p>
+            </section>
+            
+         </section>
+         <section class="left" data-background="assets/bg0.jpg">
+            <small>Philippine Agency for Cybercrime Investigation</small>
+            <img src="./assets/doj-cybercrime.png" alt="">
+           
+            <p><small class="fragment">
+                Republic Act No. 10175 or the Cybercrime Prevention Act of 2012 created the Office of Cybercrime (OOC) within the DOJ and designated it as the Central Authority in all matters relating to international mutual assistance and extradition for cybercrime and cyber-related matters.
+            </small></p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <h2>Philippine Cases</h2>            
+        </section> 
+        <section class="left" data-background="assets/bg0.jpg">
+            <p>First Philippine Hacking Case (2005)</p>
+            <p class="fragment"><small>
+                Filipino hacker JJ Maria Giner pleaded guilty on Wednesday to hacking the government portal “gov.ph” and other government websites
+            </small></p>
+            <p class="fragment"><small>
+                Giner was sentenced to one to two years of imprisonment and will pay a fine of 100,000 pesos.
+            </small></p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <p>Comelec Data Breach (2016)</p>
+            <p class="fragment"><small>
+                A significant data breach affecting the Commission on Elections (Comelec) exposed personal information of over 55 million Filipino voters.
+            </small></p>
+        </section> 
+        <section class="left" data-background="assets/bg0.jpg">
+            <p>Cebuana Lhuillier Data Breach (2019)</p>
+            <p class="fragment"><small>
+                Hackers compromised the personal information of over 900,000 customers of the pawnshop and remittance company.
+            </small></p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <h2>In our School</h2>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <p>WVSU MIS Hacked by a CICT Student (2016)</p>
+            <p class="fragment"><small>
+                The website was vulnerable to SQL Injection and XSS. The student Bypassed the HR Admin account and got a lot of personal/job information about the staff, personnel, and faculties in WVSU Main Campus.
+            </small></p>
+            <p class="fragment"><small>
+                The MIS took action and warned the student, it was then followed by a public apology from the student side.
+            </small></p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <p>School Data Exposed by the Student Hacker</p>
+            <img src="./assets/wvsu-hacked-1.png" alt="">
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <h2>Acquiring Evidence with OSForensics</h2>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <h2>OSForensics</h2>
+            <p class="fragment">A complete toolkit to extract forensic data (files, emails, deleted files, user activity, passwords) from computers.</p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <h2>OSForensics</h2>
+            <img style="height: 500px;" src="./assets/osforensics.png" alt="">
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <p>OSForensics - Case Management</p>
+            <img src="./assets/case.png" alt="">
+            <p class="fragment"><small>
+                Can group all gathered evidence together into an OSF Case file for later use. All data is cryptographically hashed to prevent tampering. 
+            </small></p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <p>OSForensics - Quick File Search</p>
+            <img src="assets/search.png" alt="">
+            <p class="fragment"><small>
+                Search for files many times faster than the search functionality in Windows.
+            </small></p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <p>OSForensics - Hash and Identify</p>
+            <img src="assets/hash.png" alt="">
+            <p class="fragment"><small>
+                Using advanced hashing algorithms OSForensics can create a digital identifier that can be used to identify a file.
+            </small></p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <p>OSForensics - Hash and Identify</p>
+            <p class="fragment"><small>
+                OSForensics allows you to use Hash Sets to quickly identify known safe files (such as operating system and program files) or known suspected files (such as viruses, trojans, hacker scripts) to reduce the need for further time-consuming analysis.
+            </small></p>
+        </section> 
+        <section class="left" data-background="assets/bg0.jpg">
+            <p>OSForensics - View More</p>
+            <img src="assets/view.png" alt="">
+            <p class="fragment"><small>
+                Can look on various file contents, memory, logs and databases.
+            </small></p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <p>OSForensics - Artifacts and Passwords</p>
+            <img src="assets/recover.png" alt="">
+            <p class="fragment"><small>
+                Using advanced hashing algorithms OSForensics can create a digital identifier that can be used to identify a file.
+            </small></p>
+        </section> 
+        <section class="left" data-background="assets/bg0.jpg">
+            <p>OSForensics - Artifacts and Passwords</p>
+            <img src="assets/browser-password-recovery.png" alt="">
+            <p class="fragment"><small>
+                OSForensics can decrypt old document files and can also use bruteforce attack to decrypt documents.
+            </small></p>
+        </section> 
+        <section class="left" data-background="assets/bg0.jpg">
+            <p>Please prepare for an individual quiz next meeting (coverage: 03 &amp; 04)</p>
+        </section>
+        <section>
+          <h2>Thank You!</h2>
+          <p>
+            <small
+              >This presentation is made of
+              <i class="fa glyphicon glyphicon-heart"></i> and
+              <strong>HTML 5</strong>
+            </small>
+          </p>
+        </section>
+      </div>
+    </div>
+
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        dependencies: [
+          {
+            src: "plugin/markdown/marked.js",
+          },
+          {
+            src: "plugin/zoom-js/zoom.js",
+          },
+          {
+            src: "plugin/markdown/markdown.js",
+          },
+          {
+            src: "plugin/notes/notes.js",
+            async: true,
+          },
+          {
+            src: "plugin/highlight/highlight.js",
+            async: true,
+          },
+        ],
+      });
+    </script>
+  </body>
 </html>
