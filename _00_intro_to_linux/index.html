@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>Introduction to Kali Linux</title>
+
+    <meta name="description" content="An introductory presentation on Kali Linux, covering its definition, history, uses, and tools." />
+    <meta name="author" content="Mark Joseph J. Solidarios" />
+
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/reveal.css" />
+    <link rel="stylesheet" href="./css/theme/black.css" />
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="./lib/css/monokai.css" />
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? "./css/print/pdf.css"
+        : "./css/print/paper.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-background="./assets/bg0.jpg">
+          <h1>Kali Linux</h1>
+          <p>An Introduction</p>
+          <div class="social-container">
+            <small>
+              Mark Joseph J. Solidarios
+              <a href="mailto: mjsolidarios@wvsu.edu.ph" target="_blank">
+                <img class="social" src="assets/mail.svg" alt="Email" />
+              </a>
+              <a href="https://github.com/mjsolidarios" target="_blank">
+                <img class="social" src="assets/github.svg" alt="GitHub" />
+              </a>
+              <a
+                href="https://www.facebook.com/sexynojutsuuser"
+                target="_blank"
+              >
+                <img class="social" src="assets/facebook.svg" alt="Facebook" />
+              </a>
+              <a href="https://www.twitter.com/mjsolidarios" target="_blank">
+                <img class="social" src="assets/twitter.svg" alt="Twitter" />
+              </a>
+            </small>
+          </div>
+        </section>
+        <section data-background="./assets/bg0.jpg" class="left">
+          <img src="./assets/nav.svg" alt="" class="icon-md" />
+          <p>
+            <small>
+              <i class="glyphicon glyphicon-info-sign"></i> Use the navigation
+              buttons or the arrow keys to proceed to the remaining slides.
+            </small>
+          </p>
+          <h2>F</h2>
+          <p>
+            <small>
+              <i class="glyphicon glyphicon-info-sign"></i> You can also press
+              <span class="highlight">&gt;</span>
+              <span class="highlight">&gt;</span>F
+              <span class="highlight">&lt;</span>
+              <span class="highlight">&lt;</span> on your keyboard to show your
+              presentation in fullscreen mode.
+            </small>
+          </p>
+          <img src="assets/explore.svg" class="icon-md" alt="" />
+          <p>
+            <small>
+              <i class="glyphicon glyphicon-info-sign"></i> This presentation is
+              best explored with up-to-date web browsers.
+            </small>
+          </p>
+        </section>
+
+        <section data-background="./assets/bg0.jpg">
+          <h2>What is Kali Linux?</h2>
+          <ul>
+            <li class="fragment">A Debian-based Linux distribution designed for digital forensics and penetration testing</li>
+            <li class="fragment">Maintained and funded by Offensive Security</li>
+            <li class="fragment">Comes pre-installed with over 600 penetration-testing programs</li>
+            <li class="fragment">Widely used by security professionals and ethical hackers</li>
+          </ul>
+        </section>
+        <section data-background="./assets/bg0.jpg">
+          <h2>Key Features of Kali Linux</h2>
+          <ul>
+            <li class="fragment">Pre-installed security and penetration testing tools</li>
+            <li class="fragment">Supports wireless device injection</li>
+            <li class="fragment">Custom kernel patched for injection</li>
+            <li class="fragment">Developed in a secure environment</li>
+            <li class="fragment">GPG signed packages and repositories</li>
+          </ul>
+        </section>
+        <section data-background="./assets/bg0.jpg">
+          <h2>Common Kali Linux Tools</h2>
+          <ul>
+            <li class="fragment"><strong>Nmap</strong> - Network mapping and port scanning</li>
+            <li class="fragment"><strong>Wireshark</strong> - Network protocol analyzer</li>
+            <li class="fragment"><strong>Metasploit</strong> - Penetration testing framework</li>
+            <li class="fragment"><strong>John the Ripper</strong> - Password cracking</li>
+            <li class="fragment"><strong>Burp Suite</strong> - Web application security testing</li>
+            <li class="fragment"><strong>Aircrack-ng</strong> - Wireless network security</li>
+          </ul>
+        </section>
+        <section data-background="./assets/bg0.jpg">
+          <h2>Kali Linux Command Line Basics</h2>
+          <div style="text-align: left; font-size: 0.9em;">
+            <p>Essential commands for security tasks:</p>
+            <pre><code class="bash"># Update package lists and upgrade system
+sudo apt update && sudo apt full-upgrade -y
+
+# Search for security tools
+apt search kali-tools-
+
+# Install a specific tool (e.g., nmap)
+sudo apt install -y nmap
+
+# Run a tool with root privileges
+sudo nmap -sV [target]
+
+# Start the Metasploit Framework
+msfconsole
+</code></pre>
+          </div>
+        </section>
+        <section data-background="./assets/bg0.jpg">
+          <h2>Introduction to Shell Scripting</h2>
+          <ul>
+            <li class="fragment">Automate repetitive tasks in Kali Linux</li>
+            <li class="fragment">Combine multiple commands into scripts</li>
+            <li class="fragment">Create custom tools and utilities</li>
+            <li class="fragment">First line typically: <code>#!/bin/bash</code></li>
+            <li class="fragment">Make scripts executable with: <code>chmod +x script.sh</code></li>
+          </ul>
+        </section>
+        <section data-background="./assets/bg0.jpg">
+          <h2>Shell Scripting Basics</h2>
+          <div style="text-align: left; font-size: 0.8em;">
+            <pre><code class="bash">#!/bin/bash
+# This is a comment
+VARIABLE="Hello, World!"
+echo $VARIABLE
+
+# If statement
+if [ -f "file.txt" ]; then
+    echo "File exists"
+fi
+
+# For loop
+for i in {1..5}; do
+    echo "Number: $i"
+done</code></pre>
+          </div>
+        </section>
+        <section data-background="./assets/bg0.jpg">
+          <h2>Advanced Shell Scripting</h2>
+          <div style="text-align: left; font-size: 0.8em;">
+            <p>Functions and Parameters:</p>
+            <pre><code class="bash">#!/bin/bash
+# Function definition
+greet_user() {
+    echo "Hello, $1!"
+}
+
+# Function call with parameter
+greet_user "Kali Linux User"
+
+# Using command line arguments
+echo "First argument: $1"
+echo "Total arguments: $#"
+echo "All arguments: $@"
+
+# Exit codes and logical operators
+command1 && echo "Command1 succeeded" || echo "Command1 failed"
+command2 || { echo "Command2 failed"; exit 1; }</code></pre>
+          </div>
+        </section>
+
+        <section data-background="./assets/bg0.jpg">
+          <h2>Text Processing with AWK and SED</h2>
+          <div style="font-size: 0.7em;">
+            <p>AWK examples:</p>
+            <pre><code class="bash"># Print first column of a file
+awk '{print $1}' file.txt
+
+# Print lines where the 3rd field is greater than 100
+awk '$3 > 100 {print $0}' data.txt
+
+# Using field separators
+awk -F':' '{print $1, $6}' /etc/passwd</code></pre>
+
+            <p>SED examples:</p>
+            <pre><code class="bash"># Replace text in a file
+sed 's/old/new/g' file.txt > newfile.txt
+
+# Delete lines containing 'pattern'
+sed '/pattern/d' file.txt
+
+# In-place editing
+sed -i 's/foo/bar/g' file.txt</code></pre>
+          </div>
+        </section>
+
+        <section data-background="./assets/bg0.jpg">
+          <h2>Practical Scripting Projects</h2>
+          <div style="font-size: 0.7em;">
+            <p>Log Analyzer:</p>
+            <pre><code class="bash">#!/bin/bash
+# Analyze web server logs
+echo "Top 10 IP addresses:"
+awk '{print $1}' /var/log/nginx/access.log | sort | uniq -c | sort -nr | head -10
+
+echo -e "\nRequests by status code:"
+awk '{print $9}' /var/log/nginx/access.log | sort | uniq -c</code></pre>
+
+            <p>File Organizer:</p>
+            <pre><code class="bash">#!/bin/bash
+# Organize files by extension
+for file in *; do
+    if [ -f "$file" ]; then
+        ext="${file##*.}"
+        mkdir -p "$ext"
+        mv "$file" "$ext/"
+    fi
+done</code></pre>
+          </div>
+        </section>
+
+        <section data-background="./assets/bg0.jpg">
+          <h2>Shell Scripting Best Practices</h2>
+          <ul>
+            <li class="fragment">Always start with a shebang (<code>#!/bin/bash</code>)</li>
+            <li class="fragment">Use meaningful variable names and add comments</li>
+            <li class="fragment">Enable error checking with <code>set -e</code> and <code>set -u</code></li>
+            <li class="fragment">Quote all variables to prevent word splitting</li>
+            <li class="fragment">Use functions to organize code into logical blocks</li>
+            <li class="fragment">Validate input and handle errors gracefully</li>
+            <li class="fragment">Use <code>[[ ]]</code> for tests instead of <code>[ ]</code></li>
+            <li class="fragment">Follow the ShellCheck guidelines for clean code</li>
+          </ul>
+        </section>
+
+        <section data-background="./assets/bg0.jpg">
+          <h2>Automating Scripts with Gemini CLI</h2>
+          <ul>
+            <li class="fragment">Leverage AI to generate shell scripts quickly</li>
+            <li class="fragment">Get help with complex commands and one-liners</li>
+            <li class="fragment">Debug and improve existing scripts</li>
+            <li class="fragment">Learn shell scripting through examples</li>
+          </ul>
+        </section>
+
+        <section data-background="./assets/bg0.jpg">
+          <h2>Using Gemini CLI for Scripting</h2>
+          <div style="text-align: left; font-size: 0.8em;">
+            <p>Basic usage examples:</p>
+            <pre><code class="bash"># Generate a script to find and archive old log files
+gemini generate "Write a bash script that finds log files older than 30 days in /var/log, 
+compresses them into a tar.gz archive with timestamp, and deletes the original files"
+
+# Get help with a specific command
+gemini ask "How can I recursively find and replace text in multiple files?"
+
+# Explain what a complex command does
+gemini explain "find . -type f -name '*.txt' -exec grep -l 'error' {} \; | xargs rm -f"
+
+# Convert commands into a script
+gemini scriptify "Find all .jpg files larger than 1MB and copy them to a backup directory"
+</code></pre>
+          </div>
+        </section>
+
+        <section data-background="./assets/bg0.jpg">
+          <h2>Best Practices with AI-Generated Scripts</h2>
+          <ul>
+            <li class="fragment">Always review generated scripts before execution</li>
+            <li class="fragment">Test in a safe environment first</li>
+            <li class="fragment">Be specific in your prompts for better results</li>
+            <li class="fragment">Use version control for AI-generated scripts</li>
+            <li class="fragment">Document the purpose and functionality</li>
+          </ul>
+        </section>
+
+        <section data-background="./assets/bg0.jpg">
+          <h2>Debugging and Optimization</h2>
+          <ul>
+            <li class="fragment">Use <code>set -x</code> for debugging</li>
+            <li class="fragment">Check exit codes with <code>$?</code></li>
+            <li class="fragment">Time commands with <code>time command</code></li>
+            <li class="fragment">Profile scripts with <code>bash -x script.sh</code></li>
+            <li class="fragment">Optimize loops - avoid unnecessary commands in them</li>
+            <li class="fragment">Use built-in string operations instead of external commands</li>
+          </ul>
+        </section>
+
+        <section data-background="./assets/bg0.jpg">
+          <h2>Cyberforensics with Gemini CLI</h2>
+          <p>Leverage AI to accelerate digital forensics investigations</p>
+          <ul>
+            <li class="fragment">Generate scripts for disk imaging and analysis</li>
+            <li class="fragment">Create timeline analysis commands</li>
+            <li class="fragment">Automate memory forensics tasks</li>
+            <li class="fragment">Parse and analyze log files efficiently</li>
+          </ul>
+        </section>
+
+        <section data-background="./assets/bg0.jpg">
+          <h2>Forensic Scripting Examples</h2>
+          <div style="text-align: left; font-size: 0.8em;">
+            <p>Common forensic tasks with Gemini:</p>
+            <pre><code class="bash"># Generate a disk imaging script
+gemini generate "Create a bash script to create a forensic image of /dev/sdb 
+using dd with progress, hash verification, and proper error handling"
+
+# Analyze memory dumps
+gemini ask "What are the best volatility3 commands to analyze a Windows memory dump 
+for evidence of malware?"
+
+# Parse Windows Event Logs
+gemini scriptify "Create a script to parse Windows Security.evtx logs for 
+failed login attempts and output to CSV"
+
+# Timeline analysis
+gemini explain "How can I create a supertimeline of system activity using log2timeline/plaso?"
+</code></pre>
+          </div>
+        </section>
+
+        <section data-background="./assets/bg0.jpg">
+          <h2>Advanced Forensic Scripting</h2>
+          <div style="text-align: left; font-size: 0.8em;">
+            <p>Complex forensic automation with Gemini:</p>
+            <pre><code class="bash"># Generate a script for automated triage collection
+gemini generate "Create a bash script that collects volatile data, 
+running processes, network connections, and saves them with timestamps"
+
+# Carve deleted files
+gemini ask "What's the best way to recover deleted files from a disk image 
+using forensics tools in Kali Linux?"
+
+# Generate YARA rules
+gemini scriptify "Create a YARA rule to detect common malware persistence mechanisms"
+
+# Network forensics
+gemini explain "How to analyze a pcap file for exfiltrated data using tshark?"
+</code></pre>
+          </div>
+        </section>
+
+        <section data-background="./assets/bg0.jpg">
+          <h2>Forensic Scripting Best Practices</h2>
+          <ul>
+            <li class="fragment">Always work on copies of evidence, never originals</li>
+            <li class="fragment">Maintain chain of custody in script outputs</li>
+            <li class="fragment">Include comprehensive logging in all scripts</li>
+            <li class="fragment">Validate all tool outputs and hashes</li>
+            <li class="fragment">Document all assumptions and limitations</li>
+            <li class="fragment">Test scripts thoroughly in a controlled environment</li>
+          </ul>
+        </section>
+
+        <section data-background="./assets/bg0.jpg">
+          <h2>Resources for Learning More</h2>
+          <ul>
+            <li>Bash Reference Manual: <a href="https://www.gnu.org/software/bash/manual/" target="_blank">gnu.org/software/bash/manual/</a></li>
+            <li>Bash Hackers Wiki: <a href="https://wiki.bash-hackers.org/" target="_blank">wiki.bash-hackers.org</a></li>
+            <li>ShellCheck: <a href="https://www.shellcheck.net/" target="_blank">shellcheck.net</a></li>
+            <li>Advanced Bash-Scripting Guide: <a href="https://tldp.org/LDP/abs/html/" target="_blank">tldp.org/LDP/abs/</a></li>
+            <li>Bash Pitfalls: <a href="https://mywiki.wooledge.org/BashPitfalls" target="_blank">mywiki.wooledge.org/BashPitfalls</a></li>
+          </ul>
+        </section>
+
+        <section data-background="./assets/bg0.jpg">
+          <h2>The Linux Filesystem</h2>
+          <ul>
+            <li class="fragment">a hierarchical directory structure</li>
+            <li class="fragment">starts with the root directory (/)</li>
+            <li class="fragment">contains files and directories that are organized in a tree-like structure</li>
+          </ul>
+        </section>
+        <section data-background="./assets/bg0.jpg">
+          <h2>Conclusion</h2>
+          <ul>
+            <li class="fragment">Kali Linux is a powerful and versatile operating system</li>
+            <li class="fragment">It is used in a wide variety of applications</li>
+            <li class="fragment">The command line is a powerful tool for interacting with the system</li>
+          </ul>
+        </section>
+        <section data-background="./assets/bg0.jpg">
+          <h2>Thank You!</h2>
+          <p>
+            <small
+              >This presentation is made of
+              <i class="fa glyphicon glyphicon-heart"></i> and
+              <strong>HTML 5</strong></small
+            >
+          </p>
+        </section>
+      </div>
+    </div>
+
+    <script src="./js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        dependencies: [
+          {
+            src: "./plugin/markdown/marked.js",
+          },
+          {
+            src: "./plugin/markdown/markdown.js",
+          },
+          {
+            src: "./plugin/notes/notes.js",
+            async: true,
+          },
+          {
+            src: "./plugin/highlight/highlight.js",
+            async: true,
+          },
+          {
+            src: "./plugin/zoom-js/zoom.js",
+            async: true,
+          },
+        ],
+      });
+    </script>
+  </body>
+</html>
