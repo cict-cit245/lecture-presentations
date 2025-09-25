@@ -579,9 +579,54 @@ def displayCount(self):
 				</section>
 			</section>
 			<section class="left">
-				<h3>Sample Problem</h3>
-				<p>Create python app that asks the user to enter their name and their age. Print out a message addressed
-					to them and tell them the year that they will turn 100 years old.</p>
+				<p><strong>Sample Problem: File Hash Calculator</strong></p>
+				<p><small>In cyberforensics, verifying file integrity is crucial. Let's create a simple tool to calculate file hashes using Python.</small></p>
+				<pre><code class="python">import hashlib
+
+def calculate_hash(file_path, algorithm='sha256'):
+    """
+    Calculate the hash of a file using the specified algorithm.
+    Common algorithms: 'md5', 'sha1', 'sha256', 'sha512'
+    """
+    # Create a hash object
+    hasher = hashlib.new(algorithm)
+    
+    # Read the file in binary mode
+    try:
+        with open(file_path, 'rb') as file:
+            # Read and update hash in chunks of 4K
+            for chunk in iter(lambda: file.read(4096), b""):
+                hasher.update(chunk)
+        return hasher.hexdigest()
+    except FileNotFoundError:
+        return "File not found"
+    except Exception as e:
+        return f"Error: {str(e)}"
+
+# Example usage
+file_path = "suspicious_file.exe"
+print(f"MD5: {calculate_hash(file_path, 'md5')}")
+print(f"SHA-256: {calculate_hash(file_path, 'sha256')}")
+</code></pre>
+			</section>
+			<section>
+				<section>
+					<h2>How It Works</h2>
+					<ul>
+						<li class="fragment">The <code>hashlib</code> module provides common hashing algorithms</li>
+						<li class="fragment">We read the file in binary mode to handle any file type</li>
+						<li class="fragment">Reading in chunks is memory efficient for large files</li>
+						<li class="fragment">The function returns the hash as a hexadecimal string</li>
+					</ul>
+				</section>
+				<section>
+					<p><strong>Common use cases in cyberforensics:</strong></p>
+					<ul>
+						<li class="fragment">Verifying file integrity after acquisition</li>
+						<li class="fragment">Detecting file tampering</li>
+						<li class="fragment">Identifying known malicious files</li>
+					</ul>
+				</section>
 			</section>
 			<section style="text-align:left">
 				<h2>References</h2>

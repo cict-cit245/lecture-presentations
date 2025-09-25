@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>SQL Injection — Advanced Forensics & Defense</title>
+
+    <meta name="description" content="SQL injection: concepts, casework, defenses, and forensics with practical labs." />
+    <meta name="author" content="Mark Joseph J. Solidarios" />
+
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/reveal.css" />
+    <link rel="stylesheet" href="./css/theme/black.css" />
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="./lib/css/monokai.css" />
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? "./css/print/pdf.css"
+        : "./css/print/paper.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
+    <link rel="stylesheet" href="./css/main.css" />
+    <style>
+      /* Subtle content polish for tables and callouts */
+      .callout {
+        border-left: 4px solid #4ade80;
+        padding: 0.8em 1em;
+        background: rgba(74, 222, 128, 0.08);
+        border-radius: 0.25rem;
+      }
+      .callout.warn {
+        border-left-color: #f59e0b;
+        background: rgba(245, 158, 11, 0.08);
+      }
+      .pill {
+        display: inline-block;
+        border: 1px solid rgba(255,255,255,0.2);
+        padding: .2em .6em;
+        border-radius: 999px;
+        font-size: .55em;
+        margin: .1em .2em;
+      }
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        align-items: start;
+      }
+      .tiny { font-size: .55em; opacity:.9; }
+      .xs   { font-size: .7em; }
+      .sm   { font-size: .85em; }
+      .reveal table td, .reveal table th { vertical-align: top; }
+      .code-fit pre { font-size: .65em; }
+    </style>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Title -->
+        <section data-background="./assets/bg0.jpg">
+          <h1>SQL Injection</h1>
+          <p class="sm">Cyber Forensics & Defense</p>
+          <div class="social-container">
+            <small>
+              Mark Joseph J. Solidarios
+              <a href="mailto:mjsolidarios@wvsu.edu.ph" target="_blank">
+                <img class="social" src="assets/mail.svg" alt="Email" />
+              </a>
+              <a href="https://github.com/mjsolidarios" target="_blank">
+                <img class="social" src="assets/github.svg" alt="GitHub" />
+              </a>
+              <a href="https://www.facebook.com/sexynojutsuuser" target="_blank">
+                <img class="social" src="assets/facebook.svg" alt="Facebook" />
+              </a>
+              <a href="https://www.twitter.com/mjsolidarios" target="_blank">
+                <img class="social" src="assets/twitter.svg" alt="Twitter" />
+              </a>
+            </small>
+          </div>
+          <aside class="notes">
+            Use this deck in 60–90 minutes. Demos/labs at the end can extend to 2 hours.
+          </aside>
+        </section>
+
+        <!-- Overview -->
+        <section data-background="./assets/bg0.jpg">
+          <section>
+            <h2>Executive Summary</h2>
+            <div class="callout">
+              SQL injection (SQLi) remains a high-impact class of vulnerabilities
+              that compromise confidentiality, integrity, and availability. Most incidents
+              result from unsafe query composition and excessive privileges — not lack of awareness.
+            </div>
+            <p class="xs">Tags:
+              <span class="pill">CIA Triad</span>
+              <span class="pill">Secure Coding</span>
+              <span class="pill">Defense-in-Depth</span>
+              <span class="pill">Forensic Readiness</span>
+            </p>
+          </section>
+          <section>
+            <h2>Learning Outcomes</h2>
+            <ul>
+              <li class="fragment">Explain how SQLi works and why it persists.</li>
+              <li class="fragment">Differentiate in-band, inferential (blind), and out-of-band SQLi.</li>
+              <li class="fragment">Write secure, parameterized data-access code in multiple languages.</li>
+              <li class="fragment">Design least-privilege database roles and break-glass procedures.</li>
+              <li class="fragment">Collect, preserve, and analyze SQLi forensic artifacts lawfully.</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Agenda</h2>
+            <ol>
+              <li>Foundations</li>
+              <li>Attack Taxonomy & Scenarios</li>
+              <li>Secure Coding & Hardening</li>
+              <li>Forensics Playbook</li>
+              <li>Case Studies</li>
+              <li>Lab Exercises + Quiz</li>
+            </ol>
+          </section>
+        </section>
+
+        <!-- Part I: Foundations -->
+        <section data-background="./assets/bg0.jpg">
+          <h2>Part I: Foundations</h2>
+        </section>
+
+        <section data-background="./assets/bg0.jpg">
+          <section>
+            <h2>What is SQL Injection?</h2>
+            <p>A flaw where user-controlled input is concatenated into SQL, allowing an attacker to alter query logic.</p>
+            <p class="xs">Key anti-patterns: string building, dynamic WHERE/ORDER without binding, constructing LIMIT/OFFSET unsafely.</p>
+          </section>
+          <section>
+            <h2>Why It Happens</h2>
+            <ul>
+              <li class="fragment">Failure to separate code and data.</li>
+              <li class="fragment">Insufficient input handling and output encoding.</li>
+              <li class="fragment">Over-privileged service accounts.</li>
+              <li class="fragment">Weak reviews, missing tests, and legacy code.</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Why It Matters</h2>
+            <div class="grid-2 sm">
+              <div>
+                <h3>Impact</h3>
+                <ul>
+                  <li>Auth bypass</li>
+                  <li>Bulk data exfiltration</li>
+                  <li>Schema tampering</li>
+                  <li>RCE via DB features (xp_cmdshell, COPY … PROGRAM)</li>
+                </ul>
+              </div>
+              <div>
+                <h3>Signals</h3>
+                <ul>
+                  <li>Verbose DB errors</li>
+                  <li>Unusual delays/timeouts</li>
+                  <li>Repeated similar requests</li>
+                  <li>Outbound DNS/HTTP from DB host</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <!-- Part II: Taxonomy -->
+        <section data-background="./assets/bg0.jpg">
+          <h2>Part II: Attack Taxonomy</h2>
+        </section>
+
+        <section data-background="./assets/bg0.jpg">
+          <section>
+            <h2>Three Core Modes</h2>
+            <table class="xs">
+              <thead>
+                <tr><th>Type</th><th>Mechanism</th><th>Example Signals</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>In-Band</strong></td><td>Results return in the same channel.</td><td>Errors/records embedded in page output.</td></tr>
+                <tr><td><strong>Inferential (Blind)</strong></td><td>Infer truth via content or timing differences.</td><td>200 vs 404 bodies, intentional delays.</td></tr>
+                <tr><td><strong>Out-of-Band</strong></td><td>DB exfiltrates data to external service.</td><td>DB host emits DNS/HTTP to attacker infra.</td></tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h2>In-Band Variants</h2>
+            <ul>
+              <li><strong>Error-based</strong>: relies on verbose DB errors.</li>
+              <li><strong>UNION-based</strong>: merges attacker SELECT with app query.</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Blind Variants</h2>
+            <ul>
+              <li><strong>Boolean-based</strong>: observe content differences.</li>
+              <li><strong>Time-based</strong>: observe response latency.</li>
+            </ul>
+          </section>
+        </section>
+
+        <!-- Part III: Scenarios (with safer framing) -->
+        <section data-background="./assets/bg0.jpg">
+          <h2>Part III: Scenarios (for Defensive Testing)</h2>
+        </section>
+
+        <section data-background="./assets/bg0.jpg">
+          <section>
+            <h2>Scenario 1 — Auth Bypass</h2>
+            <p class="sm">Risk: login checks performed via string concatenation.</p>
+            <pre class="code-fit"><code class="php">// Anti-pattern (PHP)
+$query = "SELECT * FROM users WHERE username = '$u' AND password = '$p'";
+// Defensive test objective: verify this pattern does not exist anywhere.
+</code></pre>
+            <div class="callout warn xs">
+              Use safe, isolated lab targets only. Test with authorization and consent.
+            </div>
+          </section>
+          <section>
+            <h2>Scenario 2 — UNION Data Exposure</h2>
+            <p class="sm">Risk: search/detail endpoints echo arbitrary columns via UNION.</p>
+            <pre class="code-fit"><code class="sql">-- Defensive test objective:
+-- Ensure app never reflects extra columns from unrelated tables.
+</code></pre>
+          </section>
+          <section>
+            <h2>Scenario 3 — Blind (Time)</h2>
+            <p class="sm">Risk: time-based probes reveal conditional branching in SQL.</p>
+            <pre class="code-fit"><code class="sql">-- Defensive test objective:
+-- Ensure time-controlled functions are inert to user input.</code></pre>
+          </section>
+        </section>
+
+        <!-- Part IV: Defense -->
+        <section data-background="./assets/bg0.jpg">
+          <h2>Part IV: Secure Coding & Hardening</h2>
+        </section>
+
+        <section data-background="./assets/bg0.jpg">
+          <section>
+            <h2>Golden Rule</h2>
+            <div class="callout">
+              <strong>Never</strong> build SQL with string concatenation from user input. Use parameterized queries / prepared statements everywhere.
+            </div>
+          </section>
+          <section>
+            <h2>Language Patterns</h2>
+            <div class="grid-2 code-fit">
+              <div>
+                <h3>PHP (PDO)</h3>
+<pre><code class="php">$stmt = $dbh->prepare(
+  "SELECT id FROM users WHERE username = :u AND password_hash = :h"
+);
+$stmt->execute([":u" => $u, ":h" => $hash]);</code></pre>
+              </div>
+              <div>
+                <h3>Python (psycopg2)</h3>
+<pre><code class="python">cur.execute(
+  "SELECT id FROM users WHERE username=%s AND password_hash=%s",
+  (u, hash)
+)</code></pre>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div class="grid-2 code-fit">
+              <div>
+                <h3>Node.js (pg)</h3>
+<pre><code class="javascript">const res = await pool.query(
+  "SELECT id FROM users WHERE username=$1 AND password_hash=$2",
+  [u, hash]
+);</code></pre>
+              </div>
+              <div>
+                <h3>Java (JDBC)</h3>
+<pre><code class="java">PreparedStatement ps = con.prepareStatement(
+ "SELECT id FROM users WHERE username=? AND password_hash=?");
+ps.setString(1, u);
+ps.setString(2, hash);
+ResultSet rs = ps.executeQuery();</code></pre>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h2>Credential & Secrets Hygiene</h2>
+            <ul>
+              <li>Hash passwords with modern KDF (e.g., bcrypt/argon2) and salt.</li>
+              <li>Rotate DB credentials; store in a secrets manager.</li>
+              <li>Disable dangerous DB features and extended procedures.</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Least Privilege</h2>
+            <table class="xs">
+              <thead><tr><th>Area</th><th>Better Practice</th><th>Notes</th></tr></thead>
+              <tbody>
+                <tr><td>Service account</td><td>Only needed CRUD per table</td><td>Deny DROP/ALTER/CREATE; separate read vs write roles.</td></tr>
+                <tr><td>Admin access</td><td>Break-glass only</td><td>MFA + just-in-time elevation with ticket.</td></tr>
+                <tr><td>Network</td><td>DB not Internet-exposed</td><td>Private subnets, firewall allow-lists.</td></tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h2>Defense-in-Depth</h2>
+            <ul>
+              <li>Input validation (allow-lists, canonicalization).</li>
+              <li>Parameterized queries (primary control).</li>
+              <li>ORMs with query builders (verify bind behavior).</li>
+              <li>WAF/IDS signatures for SQLi indicators.</li>
+              <li>Monitoring: slow query log, failed logins, schema change alerts.</li>
+            </ul>
+          </section>
+        </section>
+
+        <!-- Part V: Forensics -->
+        <section data-background="./assets/bg0.jpg">
+          <h2>Part V: Forensics Playbook</h2>
+        </section>
+
+        <section data-background="./assets/bg0.jpg">
+          <section>
+            <h2>First 30 Minutes</h2>
+            <ol>
+              <li class="fragment">Triage: scope endpoints, users, onset time.</li>
+              <li class="fragment">Preserve: access logs, WAF alerts, DB audit trails.</li>
+              <li class="fragment">Stabilize: block indicators (IPs, patterns) at WAF.</li>
+              <li class="fragment">Notify: incident channel, legal, privacy.</li>
+            </ol>
+          </section>
+          <section>
+            <h2>Artifacts & Tools</h2>
+            <table class="xs">
+              <thead><tr><th>Source</th><th>Look For</th><th>Tools</th></tr></thead>
+              <tbody>
+                <tr><td>Network</td><td>SQL meta-chars in HTTP; odd egress from DB</td><td>pcap, Zeek, Suricata</td></tr>
+                <tr><td>Web/App</td><td>Repeated payloads, error bursts, 5xx spikes</td><td>Access/error logs, APM</td></tr>
+                <tr><td>Database</td><td>UNION/ALTER/DROP; new privileged users</td><td>Audit logs, slow query log</td></tr>
+                <tr><td>WAF</td><td>Blocked/allowed SQLi rules</td><td>Rule hit logs, request bodies</td></tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h2>Reporting Checklist</h2>
+            <ul>
+              <li>Timeline with UTC offsets and evidence pointers.</li>
+              <li>Data-at-risk classification & counts.</li>
+              <li>Root cause (control failure) and corrective actions.</li>
+              <li>Regulatory notifications & customer comms plan.</li>
+            </ul>
+          </section>
+        </section>
+
+        <!-- Case Studies -->
+        <section data-background="./assets/bg0.jpg">
+          <h2>Part VI: Case Studies (Selected)</h2>
+        </section>
+
+        <section data-background="./assets/bg0.jpg">
+          <section>
+            <h2>Heartland (2008)</h2>
+            <ul>
+              <li>Payment processor compromised via injection; massive card data loss.</li>
+              <li><em>Lesson:</em> Compliance ≠ security; least privilege & monitoring matter.</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Yahoo! (2012)</h2>
+            <ul>
+              <li>Injection on subdomain led to credential disclosure.</li>
+              <li><em>Lesson:</em> Smaller surfaces can undermine the whole estate.</li>
+            </ul>
+          </section>
+        </section>
+
+        <!-- Lab + Quiz -->
+        <section data-background="./assets/bg0.jpg">
+          <h2>Part VII: Labs & Knowledge Check</h2>
+        </section>
+
+        <section data-background="./assets/bg0.jpg">
+          <section>
+            <h2>Lab 1 — Find & Fix</h2>
+            <ol class="sm">
+              <li>Locate all string-built SQL in sample repo.</li>
+              <li>Replace with prepared statements; add unit tests.</li>
+              <li>Create read-only role and migrate app to least privilege.</li>
+            </ol>
+          </section>
+          <section>
+            <h2>Lab 2 — Forensic Drill</h2>
+            <ol class="sm">
+              <li>Given web/WAF/DB logs, reconstruct an injection timeline.</li>
+              <li>Identify data-at-risk and propose containment actions.</li>
+            </ol>
+          </section>
+          <section>
+            <h2>Rapid Quiz</h2>
+            <ol class="sm">
+              <li>Which control <em>prevents</em> injection most directly?</li>
+              <li>Name one signal for time-based blind SQLi.</li>
+              <li>List two privileges your service account should not have.</li>
+            </ol>
+          </section>
+        </section>
+
+        <!-- Conclusion -->
+        <section data-background="./assets/bg0.jpg">
+          <h2>Conclusion & Recommendations</h2>
+          <ul>
+            <li class="fragment">Parameterization everywhere; ban string-built SQL.</li>
+            <li class="fragment">Enforce least privilege and network isolation.</li>
+            <li class="fragment">Monitor aggressively; enable DB/WAF audit trails.</li>
+            <li class="fragment">Practice: run regular secure code reviews and drills.</li>
+          </ul>
+        </section>
+
+        <section data-background="./assets/bg0.jpg">
+          <h2>Thank You!</h2>
+          <p class="tiny">Always observe safety in the digital world.</p>
+        </section>
+      </div>
+    </div>
+
+    <script src="./js/reveal.js"></script>
+
+    <script>
+      Reveal.initialize({
+        hash: true,
+        slideNumber: true,
+        transition: "fade",
+        dependencies: [
+          { src: "./plugin/markdown/marked.js" },
+          { src: "./plugin/markdown/markdown.js" },
+          { src: "./plugin/notes/notes.js", async: true },
+          { src: "./plugin/highlight/highlight.js", async: true },
+          { src: "./plugin/zoom-js/zoom.js", async: true },
+        ],
+      });
+    </script>
+  </body>
+</html>

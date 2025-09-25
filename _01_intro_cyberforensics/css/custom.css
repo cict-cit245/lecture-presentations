@@ -1,0 +1,76 @@
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  background-color: #555;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -2px;
+}
+
+.timeline-item {
+  padding: 5px 20px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+.timeline-item.left {
+  left: 0;
+}
+
+.timeline-item.right {
+  left: 50%;
+}
+
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: -12px;
+  background-color: white;
+  border: 3px solid #ff9f55;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.left::after {
+  right: -12px;
+}
+
+.right::after {
+  left: -12px;
+}
+
+.timeline-content {
+  padding: 15px 20px;
+  background-color: #333;
+  position: relative;
+  border-radius: 6px;
+}
+
+.timeline-icon {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 1.5em;
+    color: #ff9f55;
+    z-index: 2;
+}
+
+.timeline-content h3 {
+  font-size: 0.8em;
+}
+
+.timeline-content p {
+  font-size: 0.6em;
+}

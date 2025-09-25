@@ -7,9 +7,12 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
 
-    <title>Intro Cyberforensics</title>
+    <title>Intro to Cyberforensics</title>
 
-    <meta name="description" content="An introductory presentation on Cyberforensics, covering its definition, history, uses, and tools." />
+    <meta
+      name="description"
+      content="An introductory presentation on Cyberforensics, covering its definition, history, uses, and tools."
+    />
     <meta name="author" content="Mark Joseph J. Solidarios" />
 
     <link rel="stylesheet" href="css/reset.css" />
@@ -29,7 +32,12 @@
         : "css/print/paper.css";
       document.getElementsByTagName("head")[0].appendChild(link);
     </script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/custom.css" />
   </head>
 
   <body>
@@ -63,256 +71,345 @@
           <img src="assets/nav.svg" alt="" class="icon-md" />
           <p>
             <small>
-              <i class="glyphicon glyphicon-info-sign"></i> Use the navigation
-              buttons or the arrow keys to proceed to the remaining slides.
+              <i class="fas fa-info-circle"></i> Use the navigation buttons or
+              the arrow keys to proceed to the remaining slides.
             </small>
           </p>
           <h2>F</h2>
           <p>
             <small>
-              <i class="glyphicon glyphicon-info-sign"></i> You can also press
-              <span class="highlight">&gt;</span>
-              <span class="highlight">&gt;</span>F
-              <span class="highlight">&lt;</span>
-              <span class="highlight">&lt;</span> on your keyboard to show your
+              <i class="fas fa-info-circle"></i> You can also press
+              <span class="highlight">></span>
+              <span class="highlight">></span>F
+              <span class="highlight"><</span>
+              <span class="highlight"><</span> on your keyboard to show your
               presentation in fullscreen mode.
             </small>
           </p>
           <img src="assets/explore.svg" class="icon-md" alt="" />
           <p>
             <small>
-              <i class="glyphicon glyphicon-info-sign"></i> This presentation is
-              best explored with up-to-date web browsers.
+              <i class="fas fa-info-circle"></i> This presentation is best
+              explored with up-to-date web browsers.
+            </small>
+          </p>
+          <p>
+            <small>
+              <i class="fas fa-search-plus"></i> Press <span class="highlight">></span> <span class="highlight">></span>ALT</span> <span class="highlight"><</span> <span class="highlight">&lt;</span> and click on any element to zoom in.
             </small>
           </p>
         </section>
 
         <section data-background="assets/bg0.jpg">
-          <h2>Digital Forensics</h2>
+          <h2>What is Digital Forensics?</h2>
           <p class="fragment">
-            The art of recovering and analyzing contents found on digital
-            devices such as desktops, notebooks, tablets, smartphones...etc
+            <i class="fas fa-desktop"></i> The art of recovering and analyzing
+            contents found on digital devices such as desktops, notebooks,
+            tablets, smartphones...etc
           </p>
         </section>
 
         <section data-background="assets/bg0.jpg">
-          <h2>Cyber Forensics</h2>
+          <h2>What is Cyberforensics?</h2>
           <p class="fragment">
-            Specializes in the detection of cyber crimes exclusively gathering
-            and solving clues and threats in the cyberspace.
+            <i class="fas fa-user-secret"></i> Specializes in the detection of
+            cyber crimes exclusively gathering and solving clues and threats in
+            the cyberspace.
           </p>
         </section>
 
         <section data-background="assets/bg0.jpg">
-          <h2>Cyber Crime</h2>
+          <h2><i class="fas fa-shield-alt"></i> Cybercrime</h2>
           <p class="fragment">Detection and Prevention</p>
         </section>
+
         <section data-background="assets/bg0.jpg">
-          <h2>Two Forms</h2>
+          <h2>Two Forms of Cybercrime</h2>
+          <div class="fragment left" data-fragment-index="1">
+            <p><i class="fas fa-laptop"></i> Computer-Based Crime</p>
+            <p>
+              <small>
+                Criminal activity conducted purely on computers (e.g.,
+              cyber-bullying, spam, child pornography).
+              </small>
+            </p>
+          </div>
+          <div class="fragment left" data-fragment-index="2">
+            <p><i class="fas fa-user-friends"></i> Computer-Facilitated Crime</p>
+            <p>
+            <small>
+              "Real world" crime facilitated by computers (e.g., fraud,
+              planning criminal activities).
+            </small>
+            </p>
+          </div>
         </section>
+
         <section data-background="assets/bg0.jpg">
-          <h2>Computer Based Crime</h2>
-          <p class="fragment">
-            This is criminal activity that is conducted purely on computers, for
-            example cyber-bullying or spam. As well as crimes newly defined by
-            the computing age it also includes traditional crime conducted
-            purely on computers (for example, child pornography).
-          </p>
+          <h2>The Evolution of Forensics: The Early Days</h2>
+          <div class="timeline">
+            <div class="timeline-item fragment" data-fragment-index="1">
+              <div class="timeline-icon">
+                <i class="fas fa-history"></i>
+              </div>
+              <div class="timeline-content">
+                <h3>1835</h3>
+                <p>
+                  Henry Goddard of Scotland Yard uses physical analysis to
+                  connect a bullet to a murder weapon.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item fragment" data-fragment-index="2">
+              <div class="timeline-icon">
+                <i class="fas fa-vial"></i>
+              </div>
+              <div class="timeline-content">
+                <h3>1836</h3>
+                <p>
+                  James Marsh develops a chemical test for arsenic, used in a
+                  murder trial.
+                </p>
+              </div>
+            </div>
+          </div>
         </section>
+
         <section data-background="assets/bg0.jpg">
-          <h2>Computer Facilitated Crime</h2>
-          <p class="fragment">
-            Crime conducted in the "real world" but facilitated by the use of
-            computers. A classic example of this sort of crime is fraud:
-            computers are commonly used to communicate with other fraudsters, to
-            record/plan activities or to create fraudulent documents.
-          </p>
+          <h2>The Evolution of Forensics: The Early Days (Cont.)</h2>
+          <div class="timeline">
+            <div class="timeline-item fragment" data-fragment-index="1">
+              <div class="timeline-icon">
+                <i class="fas fa-dna"></i>
+              </div>
+              <div class="timeline-content">
+                <h3>1930</h3>
+                <p>
+                  Karl Landsteiner wins the Nobel Prize for classifying human
+                  blood groups.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item fragment" data-fragment-index="2">
+              <div class="timeline-icon">
+                <i class="fas fa-server"></i>
+              </div>
+              <div class="timeline-content">
+                <h3>1984</h3>
+                <p>
+                  The FBI's Magnetic Media program (later CART) is created,
+                  marking the beginning of computer forensics.
+                </p>
+              </div>
+            </div>
+          </div>
         </section>
+
         <section data-background="assets/bg0.jpg">
-          <h2>Forensics Evolution</h2>
+          <h2>The Birth of Computer Forensics</h2>
+          <div class="timeline">
+            <div class="timeline-item fragment" data-fragment-index="1">
+              <div class="timeline-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <div class="timeline-content">
+                <h3>1988</h3>
+                <p>
+                  The International Association of Computer Investigative
+                  Specialists (IACIS) is formed.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item fragment" data-fragment-index="2">
+              <div class="timeline-icon">
+                <i class="fas fa-globe"></i>
+              </div>
+              <div class="timeline-content">
+                <h3>1995</h3>
+                <p>
+                  The International Organization on Computer Evidence (IOCE) is
+                  formed.
+                </p>
+              </div>
+            </div>
+          </div>
         </section>
+
         <section data-background="assets/bg0.jpg">
-          <table>
-            <tr>
-              <td>Year</td>
-              <td>Event</td>
-            </tr>
-            <tr>
-              <td>1835</td>
-              <td>
-                Scotland Yard's Henry Goddard became the first person to use
-                physical analysis to connect a bullet to the murder weapon.
-              </td>
-            </tr>
-          </table>
+          <h2>The Rise of International Standards</h2>
+          <div class="timeline">
+            <div class="timeline-item fragment" data-fragment-index="1">
+              <div class="timeline-icon">
+                <i class="fas fa-gavel"></i>
+              </div>
+              <div class="timeline-content">
+                <h3>1997</h3>
+                <p>
+                  G8 nations declare that "Law enforcement personnel must be
+                  trained and equipped to address high-tech crimes".
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item fragment" data-fragment-index="2">
+              <div class="timeline-icon">
+                <i class="fas fa-handshake"></i>
+              </div>
+              <div class="timeline-content">
+                <h3>1998</h3>
+                <p>
+                  G8 appoints IICE to create international principles for
+                  digital evidence. First INTERPOL Forensic Science Symposium
+                  held.
+                </p>
+              </div>
+            </div>
+          </div>
         </section>
+
         <section data-background="assets/bg0.jpg">
-            <table>
-                <tr>
-                  <td>Year</td>
-                  <td>Event</td>
-                </tr>
-                <tr>
-                  <td>1836</td>
-                  <td>
-                    Scottish chemist named James Marsh developed a chemical test to detect arsenic,
-                    which was used during a murder trial. Nearly a century later, in 1930, scientist Karl Landsteiner
-                    won the Nobel Prize for classifying human blood into its various groups.
-                  </td>
-                </tr>
-              </table>
+          <h2>The Rise of International Standards (Cont.)</h2>
+          <div class="timeline">
+            <div class="timeline-item fragment" data-fragment-index="1">
+              <div class="timeline-icon">
+                <i class="fas fa-building"></i>
+              </div>
+              <div class="timeline-content">
+                <h3>2000</h3>
+                <p>
+                  First FBI Regional Computer Forensic Laboratory established.
+                </p>
+              </div>
+            </div>
+          </div>
         </section>
-        <section data-background="assets/bg0.jpg">
-            <table>
-                <tr>
-                  <td>Year</td>
-                  <td>Event</td>
-                </tr>
-                <tr>
-                  <td>
-                    1984
-                  </td>
-                  <td>
-                    FBI Magnetic Media program, which was later renamed to Computer Analysis and
-                    Response Team (CART), was created and it is believed to be the beginning of computer
-                    forensic.
-                  </td>
-                </tr>
-              </table>
-        </section>
-        <section data-background="assets/bg0.jpg">
-<table>
-                <tr>
-                  <td>Year</td>
-                  <td>Event</td>
-                </tr>
-                <tr>
-                  <td>
-                    1988
-                  </td>
-                  <td>
-                    The International Association of Computer Investigative Specialists(IACIS), an
-                    international non-profit corporation composed of volunteer computer forensic professionals
-                    dedicated to training and certifying practitioners in the field of forensic computer science was
-                    formed.
-                  </td>
-                </tr>
-              </table>
-        </section>
-        <section data-background="assets/bg0.jpg">
-            <table>
-                <tr>
-                  <td>Year</td>
-                  <td>Event</td>
-                </tr>
-                <tr>
-                  <td>
-                    1995
-                  </td>
-                  <td>
-                    International Organization on Computer Evidence (IOCE) was formed.
-                  </td>
-                </tr>
-              </table>
-        </section>
-        <section data-background="assets/bg0.jpg">
-            <table>
-                <tr>
-                  <td>Year</td>
-                  <td>Event</td>
-                </tr>
-                <tr>
-                  <td>
-                    1997
-                  </td>
-                  <td>
-                    G8 nations declared that "Law enforcement personnel must be trained and equipped to address high-tech crimes".
-                  </td>
-                </tr>
-              </table>
-        </section>
-        <section data-background="assets/bg0.jpg">
-            <table>
-                <tr>
-                  <td>Year</td>
-                  <td>Event</td>
-                </tr>
-                <tr>
-                  <td>
-                    1998
-                  </td>
-                  <td>
-                   <ul>
-                    <li>G8 appointed IICE to create international principles, guidelines and procedures relating to
-                        digital evidence.</li>
-                    <li>First INTERPOL Forensic Science Symposium was held</li>
-                   </ul>
-                  </td>
-                </tr>
-              </table>
-        </section>
-        <section data-background="assets/bg0.jpg">
-            <table>
-                <tr>
-                  <td>Year</td>
-                  <td>Event</td>
-                </tr>
-                <tr>
-                  <td>
-                    2000
-                  </td>
-                  <td>
-                    First FBI Regional Computer Forensic Laboratory established.
-                  </td>
-                </tr>
-              </table>
-        </section>
+
         <section data-background="assets/bg0.jpg">
           <h2>Cyberforensics Stages</h2>
-            <ul>
-                <li>Acquire: Identifying and Preserving</li>
-                <li>Analyze: Technical Analysis</li>
-                <li>Evaluate: What the Lawyers Do</li>
-                <li>Present: Present digital evidence in a manner that is legally acceptable in any legal proceedings.</li>
-            </ul>
+          <div class="fragment" data-fragment-index="1">
+            <p>
+              <i class="fas fa-search"></i> Acquire: Identifying and Preserving
+            </p>
+          </div>
+          <div class="fragment" data-fragment-index="2">
+            <p>
+              <i class="fas fa-microscope"></i> Analyze: Technical Analysis
+            </p>
+          </div>
+          <div class="fragment" data-fragment-index="3">
+            <p>
+              <i class="fas fa-balance-scale"></i> Evaluate: What the Lawyers Do
+            </p>
+          </div>
+          <div class="fragment" data-fragment-index="4">
+            <p>
+              <i class="fas fa-gavel"></i> Present: Legally acceptable digital
+              evidence
+            </p>
+          </div>
         </section>
+
         <section data-background="assets/bg0.jpg" class="left">
           <h2>OSSTMM</h2>
           <p class="fragment">
-            The Open Source Security Testing Methodology Manual (OSSTMM) is peer-reviewed and maintained by the Institute for Security and Open Methodologies (ISECOM). It has been primarily developed as a security auditing methodology assessing against regulatory and industry requirements.
+            <i class="fas fa-book"></i> The Open Source Security Testing
+            Methodology Manual (OSSTMM) is a peer-reviewed methodology for
+            security auditing against regulatory and industry requirements.
           </p>
         </section>
+
         <section data-background="assets/bg0.jpg">
-          <h2>Cyberforensics Uses</h2>
+          <h2>Uses of Cyberforensics</h2>
           <ul>
-            <li class="fragment">Intellectual Property theft</li>
-            <li class="fragment">Industrial espionage</li>
-            <li class="fragment">Employment disputes</li>
-            <li class="fragment">Fraud investigations</li>
-            <li class="fragment">Forgeries</li>
-            <li class="fragment">Bankruptcy investigations</li>
-            <li class="fragment">Inappropriate email and internet use in the work place</li>
-            <li class="fragment">Regulatory compliance</li>
+            <li class="fragment">
+              <i class="fas fa-copyright"></i> Intellectual Property theft
+            </li>
+            <li class="fragment">
+              <i class="fas fa-user-secret"></i> Industrial espionage
+            </li>
+            <li class="fragment">
+              <i class="fas fa-briefcase"></i> Employment disputes
+            </li>
+            <li class="fragment">
+              <i class="fas fa-money-bill-wave"></i> Fraud investigations
+            </li>
+            <li class="fragment">
+              <i class="fas fa-signature"></i> Forgeries
+            </li>
+            <li class="fragment">
+              <i class="fas fa-file-invoice-dollar"></i> Bankruptcy
+              investigations
+            </li>
+            <li class="fragment">
+              <i class="fas fa-envelope"></i> Inappropriate email and internet
+              use
+            </li>
+            <li class="fragment">
+              <i class="fas fa-check-double"></i> Regulatory compliance
+            </li>
           </ul>
         </section>
+
         <section data-background="assets/bg0.jpg">
-          <h2>Autopsy</h2>
-          <iframe width="1134" height="500" src="https://www.youtube.com/embed/uRK7xWsZ2TU" title="Computer Forensics: Using Autopsy To Investigate a Local Hard Drive" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <h2><i class="fas fa-tools"></i> Tool: Autopsy</h2>
+          <p class="fragment">
+            A popular open-source digital forensics platform for analyzing hard
+            drives and smartphones.
+          </p>
+          <iframe
+            width="1134"
+            height="500"
+            src="https://www.youtube.com/embed/uRK7xWsZ2TU"
+            title="Computer Forensics: Using Autopsy To Investigate a Local Hard Drive"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
         </section>
+
         <section data-background="assets/bg0.jpg">
-          <h2>Testdisk</h2>
-          <iframe width="1134" height="500" src="https://www.youtube.com/embed/0hrnvhapQn8" title="How to Recover Files From a Corrupt Hard Drive using TestDisk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <h2><i class="fas fa-tools"></i> Tool: Testdisk</h2>
+          <p class="fragment">
+            A powerful free data recovery software designed to help recover lost
+            partitions and/or make non-booting disks bootable again.
+          </p>
+          <iframe
+            width="1134"
+            height="500"
+            src="https://www.youtube.com/embed/0hrnvhapQn8"
+            title="How to Recover Files From a Corrupt Hard Drive using TestDisk"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
         </section>
+
         <section data-background="assets/bg0.jpg">
-          <h2>Kali Linux</h2>
-          <iframe width="1134" height="500" src="https://www.youtube.com/embed/psyDZ9ytlwc" title="What Is Kali Linux? | What Is Kali Linux And How To Use It? | Kali Linux Tutorial | Simplilearn" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <h2><i class="fas fa-tools"></i> Tool: Kali Linux</h2>
+          <p class="fragment">
+            A Debian-based Linux distribution aimed at advanced Penetration
+            Testing and Security Auditing. It comes preinstalled with numerous
+            forensic tools.
+          </p>
+          <iframe
+            width="1134"
+            height="500"
+            src="https://www.youtube.com/embed/psyDZ9ytlwc"
+            title="What Is Kali Linux? | What Is Kali Linux And How To Use It? | Kali Linux Tutorial | Simplilearn"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
         </section>
+
         <section>
           <h2>Thank You!</h2>
           <p>
             <small
-              >This presentation is made of
-              <i class="fa glyphicon glyphicon-heart"></i> and
+              >This presentation is made with
+              <i class="fas fa-heart"></i> and
               <strong>HTML 5</strong></small
             >
           </p>
@@ -340,6 +437,10 @@
           },
           {
             src: "plugin/highlight/highlight.js",
+            async: true,
+          },
+          {
+            src: "plugin/zoom-js/zoom.js",
             async: true,
           },
         ],
