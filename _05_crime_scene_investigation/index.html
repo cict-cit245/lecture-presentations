@@ -341,6 +341,144 @@
             <img src="./assets/wvsu-hacked-1.png" alt="">
         </section>
         <section class="left" data-background="assets/bg0.jpg">
+            <h2>AI-Assisted Hacking</h2>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <p>Hugging Face Breach (July 2026)</p>
+            <p class="fragment"><small>
+                An autonomous AI agent broke into Hugging Face production infrastructure.
+            </small></p>
+            <p class="fragment"><small>
+                OpenAI later confirmed the attacker was its own evaluation models, acting without a human operator.
+            </small></p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <p>How the Hugging Face Attack Started</p>
+            <p class="fragment"><small>
+                OpenAI was testing models on ExploitGym, a cybersecurity benchmark.
+            </small></p>
+            <p class="fragment"><small>
+                Safety refusals were turned down for the test.
+            </small></p>
+            <p class="fragment"><small>
+                The models escaped their sandbox and targeted Hugging Face, inferring it held the answer key.
+            </small></p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <p>How They Got In</p>
+            <p class="fragment"><small>
+                A malicious dataset abused Hugging Face's data-processing pipeline.
+            </small></p>
+            <p class="fragment"><small>
+                One path leaked local files and secrets. Another ran code inside a production worker.
+            </small></p>
+            <p class="fragment"><small>
+                From there the agent harvested credentials and moved laterally into internal clusters.
+            </small></p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <p>The Attack Was Recorded</p>
+            <p class="fragment"><small>
+                Investigators reconstructed about 17,600 attacker actions over 4.5 days.
+            </small></p>
+            <p class="fragment"><small>
+                Roughly 700 agents from the evaluation swarm joined the Hugging Face attack.
+            </small></p>
+            <p class="fragment"><small>
+                That volume is far beyond what a human operator can sustain by hand.
+            </small></p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <p>What Was Taken</p>
+            <p class="fragment"><small>
+                A limited set of internal datasets and several service credentials.
+            </small></p>
+            <p class="fragment"><small>
+                No evidence of tampering with public models, datasets, Spaces, or the software supply chain.
+            </small></p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <p>Investigating an AI-Driven Intrusion</p>
+            <p class="fragment"><small>
+                Hugging Face used AI to reconstruct the timeline from tens of thousands of log events.
+            </small></p>
+            <p class="fragment"><small>
+                Hosted frontier models refused the forensic work because of safety guardrails.
+            </small></p>
+            <p class="fragment"><small>
+                They finished the analysis on an open-weight model running on their own infrastructure.
+            </small></p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <h2>Other Recorded Cases</h2>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <p>First AI-Orchestrated Espionage (2025)</p>
+            <p class="fragment"><small>
+                Anthropic disrupted a Chinese state-sponsored campaign, tracked as GTG-1002.
+            </small></p>
+            <p class="fragment"><small>
+                Attackers used Claude Code to run reconnaissance, exploitation, and data theft.
+            </small></p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <p>First AI-Orchestrated Espionage (2025)</p>
+            <p class="fragment"><small>
+                AI performed about 80-90% of the operation. Humans stepped in only at key decisions.
+            </small></p>
+            <p class="fragment"><small>
+                The campaign targeted about 30 organizations, including tech firms, banks, manufacturers, and government agencies.
+            </small></p>
+            <p class="fragment"><small>
+                Anthropic called it the first documented large-scale cyberattack executed without substantial human intervention.
+            </small></p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <p>"Vibe-Hacking" Extortion (2025)</p>
+            <p class="fragment"><small>
+                A cybercrime ring used Claude Code to steal and extort data from at least 17 organizations.
+            </small></p>
+            <p class="fragment"><small>
+                Victims included healthcare, emergency services, religious groups, and government entities.
+            </small></p>
+            <p class="fragment"><small>
+                The AI wrote targeted ransom notes. Some demands exceeded $500,000.
+            </small></p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <p>AI-Generated Ransomware (2025)</p>
+            <p class="fragment"><small>
+                A cybercriminal with only basic coding skills used Claude to build and sell ransomware variants.
+            </small></p>
+            <p class="fragment"><small>
+                The tools included encryption, evasion, and anti-recovery features.
+            </small></p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <p>Claude Reached Real Networks During Tests (2026)</p>
+            <p class="fragment"><small>
+                After Hugging Face, Anthropic reviewed its own cybersecurity evaluations.
+            </small></p>
+            <p class="fragment"><small>
+                In three cases, Claude left a test environment and accessed production systems of real organizations.
+            </small></p>
+            <p class="fragment"><small>
+                One model continued after realizing the target was likely real.
+            </small></p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
+            <p>Why This Matters for Investigators</p>
+            <p class="fragment"><small>
+                AI attacks still leave logs, credentials, and artifacts. The evidence is just much larger.
+            </small></p>
+            <p class="fragment"><small>
+                Machine-speed campaigns can produce thousands of actions in a few days.
+            </small></p>
+            <p class="fragment"><small>
+                Investigators may need AI-assisted analysis to keep pace, while still following standard forensic procedure.
+            </small></p>
+        </section>
+        <section class="left" data-background="assets/bg0.jpg">
             <h2>Acquiring Evidence with OSForensics</h2>
         </section>
         <section class="left" data-background="assets/bg0.jpg">

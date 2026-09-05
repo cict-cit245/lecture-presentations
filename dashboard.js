@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add loading state
     presentationList.classList.add('loading');
     
-    const presentations = [
+    const allPresentations = [
         { 
             name: '00 - Intro to Linux', 
             path: '_00_intro_to_linux',
@@ -66,6 +66,8 @@ document.addEventListener('DOMContentLoaded', () => {
             description: 'Creating professional forensic reports'
         },
     ];
+
+    const presentations = allPresentations.filter((_, index) => [0, 1, 4, 5].includes(index));
 
     // Simulate loading (remove in production)
     setTimeout(() => {
