@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
     ];
 
-    const presentations = allPresentations.filter((_, index) => [0, 1, 4, 5].includes(index));
+    const presentations = allPresentations.filter((_, index) => [0, 1, 4, 5, 6].includes(index));
 
     // Simulate loading (remove in production)
     setTimeout(() => {
